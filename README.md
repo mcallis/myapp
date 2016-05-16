@@ -1,2 +1,1 @@
-# MySites
 # myapp
