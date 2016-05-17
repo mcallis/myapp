@@ -19,6 +19,7 @@ struct Constants {
         static let fromLoginToSignUp    = "fromLoginToSignUp"
         static let fromLoginToMain      = "fromLoginToMain"
         static let fromSignUpToMain     = "fromSignUpToMain"
+        static let fromLogOut           = "logOut"
     
     }
     
@@ -35,5 +36,6 @@ struct Constants {
     struct Notifications {
         static let loginSuccess         = "loginSuccess"
         static let singupSuccess        = "singupSuccess"
+        static let logOutSuccess        = "logoutSuccess"
     }
 }
