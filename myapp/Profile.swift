@@ -70,8 +70,19 @@ class Profile: UIViewControllerOwn, UITableViewDataSource, UITableViewDelegate {
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1{
-            self.performSegueWithIdentifier("logOut", sender: self)
+            mAppManager.doLogOut()
+            self.performSegueWithIdentifier(Constants.Segues.fromLogOut, sender: self)
+            tabBarController?.selectedIndex = 0
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Constants.Segues.fromLogOut {
+            let loginVC = segue.destinationViewController as! Login
+            loginVC.setFromLogOut()
+        }
+    }
+
+    
     
 }
