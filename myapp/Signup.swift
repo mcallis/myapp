@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 class Signup: UIViewControllerOwn, UITextFieldDelegate {
     
     @IBOutlet weak var fieldUsername: UITextField!
@@ -17,6 +18,7 @@ class Signup: UIViewControllerOwn, UITextFieldDelegate {
     @IBOutlet weak var fieldEmail: UITextField!
     
     let mAppManager: AppManager = AppManager.sharedInstance
+    var fromLogOut: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +67,8 @@ class Signup: UIViewControllerOwn, UITextFieldDelegate {
     }
     
     func toMainApp(){
-        self.performSegueWithIdentifier(Constants.Segues.fromSignUpToMain, sender: nil)
-    }
+        mAppManager.autoLoggedIn = false
+        self.performSegueWithIdentifier(Constants.Segues.fromSignUpToMain, sender: nil)    }
     
     func alertError(message: String){
         let alertController = UIAlertOwn(title: "Error", message: message, preferredStyle: .Alert)
