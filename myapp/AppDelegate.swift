@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mAppManager = AppManager.sharedInstance
         
+        self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController: UIViewController
         
         // START BACKENDLESS
         let backendless = Backendless.sharedInstance()
@@ -28,21 +28,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loggedIn = mAppManager.existUserSession()
         if loggedIn{
             // toMainApp
+            mAppManager.autoLoggedIn = true
             let tabBar = storyboard.instantiateViewControllerWithIdentifier("MainAppController")
-            initialViewController = tabBar
+            self.window?.rootViewController = tabBar
+            //self.setInitialVC(tabBar)
+            
         } else{
             // clear current user
             mAppManager.clearUserData()
             // showLogin
             let login = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewControllerOwn
-            initialViewController = login
+            self.window?.rootViewController = login
+            //setInitialVC(login)
         }
         
+        return true
+    }
+    
+    func setInitialVC(initialViewController: UIViewController){
         //SET INITIAL VC
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
-        
-        return true
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
