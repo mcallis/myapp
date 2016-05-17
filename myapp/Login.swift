@@ -62,13 +62,23 @@ class Login: UIViewControllerOwn, UITextFieldDelegate {
     }
     
     func toMainApp(){
-        performSegueWithIdentifier(Constants.Segues.fromLoginToMain, sender: self)
+        mAppManager.autoLoggedIn = false
+        if fromLogOut {
+            dismiss()
+        } else {
+            performSegueWithIdentifier(Constants.Segues.fromLoginToMain, sender: self)
+        }
         self.resetFields()
+        //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func tapSignUp(sender: UIButton!){
         performSegueWithIdentifier(Constants.Segues.fromLoginToSignUp, sender: self)
         self.resetFields()
+    }
+    
+    func dismiss(){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -100,7 +110,8 @@ class Login: UIViewControllerOwn, UITextFieldDelegate {
         }
     }
     
-
-
+    func setFromLogOut(){
+        self.fromLogOut = true
+    }
 }
 
