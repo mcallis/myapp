@@ -16,12 +16,14 @@ class Login: UIViewControllerOwn, UITextFieldDelegate {
     @IBOutlet weak var btnSignup: UIButtonOwn!
     
     let mAppManager = AppManager.sharedInstance
+    var fromLogOut = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.fieldUserName.text = "mmmmm"
-        self.fieldPassword.text = "12345678"
+        self.fieldUserName.text = "admin"
+        self.fieldPassword.text = "admin"
         
         btnLogin.addTarget(self, action: #selector(Login.tapLogin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         btnSignup.addTarget(self, action: #selector(Login.tapSignUp(_:)), forControlEvents: UIControlEvents.TouchUpInside)
