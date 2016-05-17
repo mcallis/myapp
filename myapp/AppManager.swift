@@ -54,6 +54,9 @@ class AppManager {
     }
     
     func existUserSession() -> Bool{
+        if UserSession.exist() {
+            autoLoggedIn(true)
+        }
         return UserSession.exist()
     }
 
