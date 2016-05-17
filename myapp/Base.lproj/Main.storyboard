@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -353,11 +353,10 @@
                     <navigationItem key="navigationItem" title="Profile" id="F5I-E2-vbW"/>
                     <connections>
                         <outlet property="tableView" destination="aZN-WL-4Bw" id="U0t-aC-8lr"/>
-                        <segue destination="U4c-pI-kF4" kind="unwind" identifier="logOut" unwindAction="returnActionForSegue:" id="SWH-p6-cYN"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logOut" id="k40-mb-75D"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHx-mx-3lE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="U4c-pI-kF4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3949" y="775"/>
         </scene>
@@ -446,6 +445,6 @@
         <image name="profile_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="35g-BX-J2l"/>
+        <segue reference="v11-e6-MBB"/>
     </inferredMetricsTieBreakers>
 </document>
