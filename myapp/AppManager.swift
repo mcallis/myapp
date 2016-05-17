@@ -22,16 +22,20 @@ class AppManager {
     func doLogin(username: String, password: String, completion:(success: Bool, error: Fault!) -> Void){
         UserSession.login(username, password: password, response: { (registeredUser) in
             self.currentUser = registeredUser
+            completion(success: true, error: nil)
         }, _error: { (error) in
             self.clearUserData()
+            completion(success: false, error: error)
         })
     }
     
     func doSignUp(newUser: User, completion:(success: Bool, error: Fault!) -> Void){
         UserSession.signup(newUser, response: { (registeredUser) in
             self.currentUser = registeredUser
+            completion(success: true, error: nil)
             }, _error: { (error) in
                 self.clearUserData()
+                completion(success: false, error: error)
         })
     }
     
