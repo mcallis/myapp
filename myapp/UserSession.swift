@@ -34,10 +34,8 @@ class UserSession {
     }
     
     static func login(userName: String, password: String, response:(registeredUser: User) -> Void, _error:(error: Fault!) -> Void){
-        
         let connection = ConnectionApi.sharedInstance
-        
-        connection.login(self.userName, password: self.password,
+        connection.login(userName, password: password,
             response: { (logedInUser) -> Void in
                 
                 // Set user session
@@ -45,8 +43,8 @@ class UserSession {
                 
                 // Create user
                 let user = User()
-                user.username = self.userName
-                user.password = self.password
+                user.username = userName
+                user.password = password
                 user.name = logedInUser.name!
                 user.email = logedInUser.email
                 user.logged = true
