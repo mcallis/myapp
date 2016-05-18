@@ -19,7 +19,7 @@ struct Constants {
         static let fromLoginToSignUp    = "fromLoginToSignUp"
         static let fromLoginToMain      = "fromLoginToMain"
         static let fromSignUpToMain     = "fromSignUpToMain"
-        static let fromLogOut           = "logOut"
+        static let fromLogOut           = "UnwindLogOut"
     
     }
     

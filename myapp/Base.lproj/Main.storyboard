@@ -114,6 +114,9 @@
                                                     <rect key="frame" x="20" y="29" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Login"/>
+                                                    <connections>
+                                                        <action selector="tapLogin" destination="vkp-GL-eSd" eventType="touchUpInside" id="b3g-eo-bfD"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvN-h9-B4U">
                                                     <rect key="frame" x="20" y="67" width="560" height="30"/>
@@ -136,7 +139,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BhC-Sa-42g" kind="presentation" id="ohr-Gs-Yih"/>
+                                            <segue destination="BhC-Sa-42g" kind="presentation" identifier="fromLoginToMain" id="ohr-Gs-Yih"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -400,10 +403,11 @@
                     <navigationItem key="navigationItem" title="Profile" id="F5I-E2-vbW"/>
                     <connections>
                         <outlet property="tableView" destination="aZN-WL-4Bw" id="U0t-aC-8lr"/>
-                        <segue destination="fmy-7Z-3p4" kind="presentation" identifier="logOut" id="k40-mb-75D"/>
+                        <segue destination="mO4-I3-txX" kind="unwind" identifier="UnwindLogOut" unwindAction="returnActionForSegue:" id="9Sl-9K-Sjl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHx-mx-3lE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mO4-I3-txX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4761" y="775"/>
         </scene>
