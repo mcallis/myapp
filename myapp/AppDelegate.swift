@@ -21,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // START BACKENDLESS
-        let backendless = Backendless.sharedInstance()
-        backendless.initApp(ConnectionApi.APP_ID, secret:ConnectionApi.SECRET_KEY, version:ConnectionApi.VERSION_NUM)
+        _ = ConnectionApi()
         
         // VERIFY THAT THERE'S A LOGGED IN USER
         let loggedIn = mAppManager.existUserSession()
