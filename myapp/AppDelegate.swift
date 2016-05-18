@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mAppManager = AppManager.sharedInstance
         
-        self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // START BACKENDLESS
@@ -29,27 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // toMainApp
             mAppManager.autoLoggedIn = true
             let tabBar = storyboard.instantiateViewControllerWithIdentifier("MainAppController")
+            self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
             self.window?.rootViewController = tabBar
-            //self.setInitialVC(tabBar)
-            
-        } else{
-            // clear current user
-            mAppManager.clearUserData()
-            // showLogin
-            let login = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewControllerOwn
-            self.window?.rootViewController = login
-            //setInitialVC(login)
         }
-        
         return true
     }
     
-    func setInitialVC(initialViewController: UIViewController){
-        //SET INITIAL VC
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
-
-    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
