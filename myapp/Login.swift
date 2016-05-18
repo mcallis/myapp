@@ -43,12 +43,12 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
         case fieldUserName:
             fieldPassword.becomeFirstResponder()
         default:
-            textField.resignFirstResponder()
+            tapLogin()
         }
-        return true
+        return false
     }
     
-    @IBAction func tapLogin(sender: UIButton) {
+    @IBAction func tapLogin() {
         if canDoLogin(){
             let username = fieldUserName.text
             let password = fieldPassword.text
