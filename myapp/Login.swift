@@ -24,9 +24,6 @@ class Login: UIViewControllerOwn, UITextFieldDelegate {
         
         self.fieldUserName.text = "admin"
         self.fieldPassword.text = "admin"
-        
-        btnLogin.addTarget(self, action: #selector(Login.tapLogin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        btnSignup.addTarget(self, action: #selector(Login.tapSignUp(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,11 +38,16 @@ class Login: UIViewControllerOwn, UITextFieldDelegate {
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        switch textField {
+        case fieldUserName:
+            fieldPassword.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
         return true
     }
     
-    func tapLogin(sender: UIButton!){
+    @IBAction func tapLogin(sender: UIButton) {
         if canDoLogin(){
             let username = fieldUserName.text
             let password = fieldPassword.text
@@ -58,24 +60,25 @@ class Login: UIViewControllerOwn, UITextFieldDelegate {
                     self.alertError((error.message))
                 }
             })
-        } 
+        }
+
     }
+    
     
     func toMainApp(){
         mAppManager.autoLoggedIn = false
+        performSegueWithIdentifier(Constants.Segues.fromLoginToMain, sender: self)
+        self.resetFields()
+        /*
         if fromLogOut {
             dismiss()
         } else {
-            performSegueWithIdentifier(Constants.Segues.fromLoginToMain, sender: self)
-        }
-        self.resetFields()
+            
+        }*/
+        
         //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func tapSignUp(sender: UIButton!){
-        performSegueWithIdentifier(Constants.Segues.fromLoginToSignUp, sender: self)
-        self.resetFields()
-    }
     
     func dismiss(){
         self.dismissViewControllerAnimated(true, completion: nil)
