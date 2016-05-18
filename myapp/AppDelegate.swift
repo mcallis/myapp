@@ -18,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mAppManager = AppManager.sharedInstance
         
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         // START BACKENDLESS
         _ = ConnectionApi()
         
@@ -28,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if loggedIn{
             // toMainApp
             mAppManager.autoLoggedIn = true
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabBar = storyboard.instantiateViewControllerWithIdentifier("MainAppController")
             self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
             self.window?.rootViewController = tabBar
