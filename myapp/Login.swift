@@ -8,12 +8,13 @@
 
 import UIKit
 
-class Login: UIViewControllerOwn, UITextFieldDelegate {
+class Login: UITableViewControllerOwn, UITextFieldDelegate {
 
     @IBOutlet weak var fieldUserName: UITextFieldOwn!
     @IBOutlet weak var fieldPassword: UITextFieldOwn!
     @IBOutlet weak var btnLogin: UIButtonOwn!
     @IBOutlet weak var btnSignup: UIButtonOwn!
+
     
     let mAppManager = AppManager.sharedInstance
     var fromLogOut = false
