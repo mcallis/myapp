@@ -341,6 +341,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z43-wU-kKD">
                                                     <rect key="frame" x="243" y="23" width="114" height="30"/>
                                                     <state key="normal" title="Terms of service"/>
+                                                    <connections>
+                                                        <segue destination="Xj9-pK-ld5" kind="show" identifier="" id="Sht-ap-Uv2"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -404,6 +407,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Umu-TC-RrI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1281" y="1454"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="G40-oy-vxe">
+            <objects>
+                <viewController id="Xj9-pK-ld5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wY4-RW-sEL"/>
+                        <viewControllerLayoutGuide type="bottom" id="BjM-yL-Bnn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GPc-IW-DOb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Izt-4h-x2z">
+                                <rect key="frame" x="0.0" y="64" width="600" height="721"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">These are our terms of service, please review them carefully
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget mauris eu lacus ullamcorper aliquet vel sed purus. Maecenas molestie sem justo, at faucibus ante molestie quis. Aenean sodales vitae nisi tempor fringilla. Donec faucibus dictum ligula, facilisis dapibus quam mollis nec. Vivamus euismod tincidunt malesuada. Pellentesque sodales sollicitudin tellus, quis semper dui efficitur a. Vestibulum quis justo facilisis, auctor leo pharetra, consequat ligula. Pellentesque placerat turpis egestas enim imperdiet laoreet. Sed suscipit, metus at lobortis dictum, est sapien pulvinar quam, et rhoncus est nulla et enim. Suspendisse potenti.
+
+Praesent efficitur pretium eleifend. Morbi finibus at ante sit amet efficitur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec non sollicitudin mauris, a tincidunt augue. Nunc in sagittis orci. Cras euismod magna eu ex sagittis posuere. In eu odio volutpat, congue nulla id, sollicitudin lectus. Nunc dictum, libero vel gravida iaculis, lectus ante pharetra dolor, at molestie metus augue et arcu. Nunc sodales eget tortor eget aliquet. Etiam finibus diam lectus, et dapibus turpis feugiat volutpat. Nullam sit amet volutpat lectus, vel aliquam lorem. Phasellus in dui auctor, mollis nunc et, egestas sapien. Vivamus scelerisque nec mi ut facilisis.
+
+Ut eu lacinia diam. Vestibulum rutrum dui sit amet urna pellentesque, non tempor turpis scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rhoncus, lectus vitae consectetur bibendum, dolor mi fermentum massa, non volutpat leo magna sit amet libero. Integer est lacus, fermentum vel leo sit amet, ultrices aliquam velit. Curabitur in odio luctus turpis viverra sollicitudin. Proin id iaculis nisi, vitae commodo metus. Quisque diam nulla, feugiat a ex id, luctus interdum est. Nam imperdiet pharetra velit eget molestie. Nulla venenatis, nisl quis elementum gravida, risus ligula tempus risus, a vehicula tellus erat ac elit.
+
+Donec consequat lectus vitae lacinia tincidunt. Suspendisse non ornare turpis, sodales pretium dui. Pellentesque aliquet ullamcorper condimentum. Curabitur a nisl in turpis ullamcorper rutrum at vel diam. Integer diam ante, auctor et dignissim quis, fermentum sit amet turpis. Ut dictum egestas massa a tristique. Fusce consequat tincidunt elit. Nunc vitae ligula ultricies, pellentesque nibh a, viverra odio. Cras auctor nunc urna, quis tristique elit ultrices sed. Maecenas convallis nec nulla at laoreet. Nunc eu accumsan ligula. Sed fringilla neque elit, eget volutpat risus aliquet eget. Nunc vulputate laoreet ante at ultrices. Nunc vitae varius erat, id feugiat justo. Aenean sed condimentum ipsum. Sed vitae vehicula erat.
+
+Proin non vulputate nisl. Sed ullamcorper nulla vel erat rhoncus, ut aliquam dui pellentesque. Sed nunc massa, tempor quis vestibulum in, congue commodo enim. Aliquam tempus consequat est. Integer pulvinar quam sit amet dapibus scelerisque. Maecenas eu metus finibus neque convallis vestibulum. Cras nisi augue, ultrices ac leo vel, laoreet gravida mauris. Pellentesque ultrices in eros quis consequat. Aliquam vel vulputate justo. Ut cursus enim vel turpis sagittis, sed fringilla ipsum ultrices. Integer eget eleifend ipsum, et sodales turpis. Fusce interdum luctus sagittis. Curabitur lacinia, justo vel porta sollicitudin, felis lacus auctor tellus, eu elementum mi enim at nisi. Pellentesque nec lectus orci.
+
+Nulla dapibus justo arcu, quis porttitor diam posuere vel. In sit amet varius mauris. Donec tincidunt pharetra lectus, sed venenatis mi dignissim commodo. Ut volutpat, ligula et lobortis facilisis, nunc justo faucibus sem, non pellentesque risus sapien sed neque. Sed neque lectus, ornare et est at, dapibus tincidunt augue. Maecenas eget elementum enim. Donec tincidunt lectus at nibh euismod, in tempor purus viverra. Fusce eu velit et massa euismod pretium.
+
+Nunc vestibulum viverra dolor, vel placerat leo sagittis in. In vel convallis eros. Sed congue, enim auctor aliquet suscipit, nisi lectus hendrerit mauris, sed venenatis nunc orci ut quam. Vestibulum interdum blandit lectus, id iaculis purus ullamcorper in. Vestibulum purus nunc, scelerisque sit amet velit non, hendrerit iaculis odio. Fusce fringilla leo at nulla molestie laoreet. Fusce suscipit pulvinar ante, a semper arcu ullamcorper at. Sed arcu felis, efficitur sed est non, tincidunt cursus arcu. Donec enim arcu, congue non massa vel, euismod efficitur nunc. Etiam congue aliquam ipsum non eleifend. Fusce eu justo eget dolor porta commodo ut quis mi. Nullam lacinia ex a molestie volutpat. Suspendisse in facilisis augue, sed molestie mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus pulvinar ligula suscipit, fermentum leo ornare, condimentum risus. Phasellus a leo cursus, malesuada nisl non, fermentum lacus.
+
+Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congue pulvinar. Aenean vulputate sem vitae ante venenatis suscipit. Vivamus eget efficitur dolor. Duis sollicitudin justo eu lacus consequat congue. Cras vitae purus eget ante tristique semper. Ut pellentesque cursus velit, ac malesuada orci ullamcorper eu.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Izt-4h-x2z" firstAttribute="leading" secondItem="GPc-IW-DOb" secondAttribute="leadingMargin" constant="-20" id="5Vp-E2-Egz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Izt-4h-x2z" secondAttribute="trailing" constant="-20" id="Jbc-He-Izs"/>
+                            <constraint firstItem="BjM-yL-Bnn" firstAttribute="top" secondItem="Izt-4h-x2z" secondAttribute="bottom" constant="-229" id="MO0-sA-lGH"/>
+                            <constraint firstItem="Izt-4h-x2z" firstAttribute="top" secondItem="wY4-RW-sEL" secondAttribute="bottom" id="eWX-Qj-knN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Efr-BU-MQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2087" y="1455"/>
         </scene>
         <!--Tab Bar-->
         <scene sceneID="iyY-VP-IAt">
