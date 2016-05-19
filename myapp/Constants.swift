@@ -26,7 +26,10 @@ struct Constants {
     struct ErrorMessage{
         static let userNameisRequired   = "Username is required"
         static let passwordisRequired   = "Password is required"
-        static let nameisRequired       = "Name is required"
+        static let nameisRequired       = "Full name is required"
+        static let passwordsDontMatch   = "The passwords don't match"
+        static let mustAcceptTerms      = "You must accept the terms to register"
+        static let emailisRequired      = "Email is required"
     }
     
     struct TitlesViews {
