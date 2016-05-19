@@ -76,13 +76,6 @@ class Profile: UIViewControllerOwn, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == Constants.Segues.fromLogOut {
-            let loginVC = segue.destinationViewController as! Login
-            loginVC.setFromLogOut()
-        }
-    }
-
     
     
 }

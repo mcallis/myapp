@@ -20,6 +20,7 @@ class ConnectionApi {
     
     init(){
         self.backendless = Backendless.sharedInstance()
+        self.backendless.initApp(ConnectionApi.APP_ID, secret:ConnectionApi.SECRET_KEY, version:ConnectionApi.VERSION_NUM)
     }
     
     func login(username: String, password: String, response:(logedInUser: BackendlessUser) -> Void, _error:(error: Fault!) -> Void){
