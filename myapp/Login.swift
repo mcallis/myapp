@@ -8,12 +8,13 @@
 
 import UIKit
 
-class Login: UIViewControllerOwn, UITextFieldDelegate {
+class Login: UITableViewControllerOwn, UITextFieldDelegate {
 
     @IBOutlet weak var fieldUserName: UITextFieldOwn!
     @IBOutlet weak var fieldPassword: UITextFieldOwn!
     @IBOutlet weak var btnLogin: UIButtonOwn!
     @IBOutlet weak var btnSignup: UIButtonOwn!
+
     
     let mAppManager = AppManager.sharedInstance
     var fromLogOut = false
@@ -21,12 +22,17 @@ class Login: UIViewControllerOwn, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.fieldUserName.text = "admin"
-        self.fieldPassword.text = "admin"
-        
-        btnLogin.addTarget(self, action: #selector(Login.tapLogin(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        btnSignup.addTarget(self, action: #selector(Login.tapSignUp(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        let loggedIn = mAppManager.existUserSession()
+        if loggedIn{
+            // toMainApp
+            mAppManager.autoLoggedIn = true
+            toMainApp()
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,11 +47,16 @@ class Login: UIViewControllerOwn, UITextFieldDelegate {
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        switch textField {
+        case fieldUserName:
+            fieldPassword.becomeFirstResponder()
+        default:
+            tapLogin()
+        }
         return true
     }
     
-    func tapLogin(sender: UIButton!){
+    @IBAction func tapLogin() {
         if canDoLogin(){
             let username = fieldUserName.text
             let password = fieldPassword.text
@@ -53,34 +64,21 @@ class Login: UIViewControllerOwn, UITextFieldDelegate {
             mAppManager.doLogin(username!, password: password!, completion: { (success, error) -> Void in
                 self.stopIndicator()
                 if success{
+                    self.mAppManager.autoLoggedIn = false
                     self.toMainApp()
                 } else {
                     self.alertError((error.message))
                 }
             })
-        } 
+        }
+
     }
+    
     
     func toMainApp(){
-        mAppManager.autoLoggedIn = false
-        if fromLogOut {
-            dismiss()
-        } else {
-            performSegueWithIdentifier(Constants.Segues.fromLoginToMain, sender: self)
-        }
-        self.resetFields()
-        //self.dismissViewControllerAnimated(true, completion: nil)
+        performSegueWithIdentifier(Constants.Segues.fromLoginToMain, sender: self)
     }
-    
-    func tapSignUp(sender: UIButton!){
-        performSegueWithIdentifier(Constants.Segues.fromLoginToSignUp, sender: self)
-        self.resetFields()
-    }
-    
-    func dismiss(){
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
+
     
     func canDoLogin() -> Bool{
         if fieldUserName.text!.isEmpty{
@@ -105,13 +103,8 @@ class Login: UIViewControllerOwn, UITextFieldDelegate {
     
     
     @IBAction func returnActionForSegue(segue: UIStoryboardSegue) {
-        if segue.identifier == Constants.Segues.fromLoginToMain{
-            mAppManager.doLogOut()
-        }
+        mAppManager.doLogOut()
+        self.resetFields()
     }
-    
-    func setFromLogOut(){
-        self.fromLogOut = true
-    }
-}
+ }
 

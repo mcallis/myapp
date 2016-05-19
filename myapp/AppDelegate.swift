@@ -15,30 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let mAppManager = AppManager.sharedInstance
-        
-        self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         // START BACKENDLESS
-        let backendless = Backendless.sharedInstance()
-        backendless.initApp(ConnectionApi.APP_ID, secret:ConnectionApi.SECRET_KEY, version:ConnectionApi.VERSION_NUM)
-        
-        // VERIFY THAT THERE'S A LOGGED IN USER
-        let loggedIn = mAppManager.existUserSession()
-        if loggedIn{
-            // toMainApp
-            mAppManager.autoLoggedIn = true
-            let tabBar = storyboard.instantiateViewControllerWithIdentifier("MainAppController")
-            self.window?.rootViewController = tabBar
-        } else{
-            // clear current user
-            mAppManager.clearUserData()
-            // showLogin
-            let login = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewControllerOwn
-            self.window?.rootViewController = login
-        }
-        
+        _ = ConnectionApi()
+
         return true
     }
     
