@@ -22,7 +22,16 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+           }
     
+    override func viewWillAppear(animated: Bool) {
+        let loggedIn = mAppManager.existUserSession()
+        if loggedIn{
+            // toMainApp
+            mAppManager.autoLoggedIn = true
+            toMainApp()
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +63,7 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
             mAppManager.doLogin(username!, password: password!, completion: { (success, error) -> Void in
                 self.stopIndicator()
                 if success{
+                    self.mAppManager.autoLoggedIn = false
                     self.toMainApp()
                 } else {
                     self.alertError((error.message))
@@ -65,7 +75,6 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
     
     
     func toMainApp(){
-        mAppManager.autoLoggedIn = false
         performSegueWithIdentifier(Constants.Segues.fromLoginToMain, sender: self)
         self.resetFields()
     }

@@ -15,12 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let mAppManager = AppManager.sharedInstance
+        //let mAppManager = AppManager.sharedInstance
         
         
         // START BACKENDLESS
         _ = ConnectionApi()
-        
+        /*
         // VERIFY THAT THERE'S A LOGGED IN USER
         let loggedIn = mAppManager.existUserSession()
         if loggedIn{
@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let tabBar = storyboard.instantiateViewControllerWithIdentifier("MainAppController")
             self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
             self.window?.rootViewController = tabBar
-        }
+        }*/
+ 
         return true
     }
     
