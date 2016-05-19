@@ -43,7 +43,7 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
         default:
             tapLogin()
         }
-        return false
+        return true
     }
     
     @IBAction func tapLogin() {
