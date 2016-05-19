@@ -112,13 +112,8 @@ class Signup: UITableViewControllerOwn, UITextFieldDelegate {
         case fieldName:
             fieldEmail.becomeFirstResponder()
 
-        case fieldEmail:
-            btnTerms.becomeFirstResponder()
-            
-        case btnTerms:
-            fieldAcceptTerms.becomeFirstResponder()
         default:
-            textField.resignFirstResponder()
+           textField.resignFirstResponder()
         }
         return true
     }

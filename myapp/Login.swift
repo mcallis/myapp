@@ -22,9 +22,10 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-           }
+    }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         let loggedIn = mAppManager.existUserSession()
         if loggedIn{
             // toMainApp
@@ -76,7 +77,6 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
     
     func toMainApp(){
         performSegueWithIdentifier(Constants.Segues.fromLoginToMain, sender: self)
-        self.resetFields()
     }
 
     
@@ -103,9 +103,8 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
     
     
     @IBAction func returnActionForSegue(segue: UIStoryboardSegue) {
-        if segue.identifier == Constants.Segues.fromLoginToMain{
-            mAppManager.doLogOut()
-        }
+        mAppManager.doLogOut()
+        self.resetFields()
     }
  }
 
