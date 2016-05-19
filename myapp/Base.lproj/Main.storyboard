@@ -163,7 +163,7 @@
         <!--Signup-->
         <scene sceneID="KF6-hV-wJx">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="aXt-je-qbJ" customClass="Signup" customModule="myapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="aXt-je-qbJ" customClass="Signup" customModule="myapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ayr-Ew-C0S">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,7 +172,7 @@
                             <tableViewSection headerTitle="These are the username and password that you will use to login" id="okO-0U-8QJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="6aY-8p-Gcb">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="75"/>
+                                        <rect key="frame" x="0.0" y="114" width="600" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6aY-8p-Gcb" id="Ga4-5z-H1k">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
@@ -181,7 +181,10 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eja-UW-dW9">
                                                     <rect key="frame" x="20" y="35" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="aXt-je-qbJ" id="Q0Q-nI-2aV"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhT-Gb-S6d">
                                                     <rect key="frame" x="20" y="9" width="71" height="18"/>
@@ -200,7 +203,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="FlD-sM-Kl2">
-                                        <rect key="frame" x="0.0" y="125" width="600" height="75"/>
+                                        <rect key="frame" x="0.0" y="189" width="600" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FlD-sM-Kl2" id="yKJ-3q-1tw">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
@@ -209,7 +212,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MZ6-bb-cly">
                                                     <rect key="frame" x="20" y="35" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="aXt-je-qbJ" id="e3k-II-LHd"/>
                                                     </connections>
@@ -231,7 +234,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="WCN-qv-qre">
-                                        <rect key="frame" x="0.0" y="200" width="600" height="75"/>
+                                        <rect key="frame" x="0.0" y="264" width="600" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCN-qv-qre" id="dDK-8s-LCm">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
@@ -240,7 +243,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PSG-Yq-ck9">
                                                     <rect key="frame" x="20" y="35" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="aXt-je-qbJ" id="L6m-SB-kTT"/>
                                                     </connections>
@@ -266,7 +269,7 @@
                             <tableViewSection headerTitle="Please tell us some more about yourself" id="b6F-xd-tl4">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="DxR-CX-rA6">
-                                        <rect key="frame" x="0.0" y="326" width="600" height="75"/>
+                                        <rect key="frame" x="0.0" y="390" width="600" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DxR-CX-rA6" id="2XG-YL-LBP">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
@@ -275,7 +278,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tYq-N1-aVt">
                                                     <rect key="frame" x="20" y="35" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="aXt-je-qbJ" id="K4J-Je-e5A"/>
                                                     </connections>
@@ -297,7 +300,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="Klc-x4-5nT">
-                                        <rect key="frame" x="0.0" y="401" width="600" height="75"/>
+                                        <rect key="frame" x="0.0" y="465" width="600" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Klc-x4-5nT" id="JLV-6e-480">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
@@ -312,7 +315,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pt3-F8-5yT">
                                                     <rect key="frame" x="20" y="35" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="aXt-je-qbJ" id="fTL-Qv-Hfk"/>
                                                     </connections>
@@ -332,7 +335,7 @@
                             <tableViewSection headerTitle="You must accept our terms of service to register" id="Y6i-Sz-JKt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="1Zd-RM-fZ4">
-                                        <rect key="frame" x="0.0" y="527" width="600" height="75"/>
+                                        <rect key="frame" x="0.0" y="591" width="600" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Zd-RM-fZ4" id="X1e-0x-sJE">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
@@ -353,7 +356,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="BqY-eD-Kan">
-                                        <rect key="frame" x="0.0" y="602" width="600" height="75"/>
+                                        <rect key="frame" x="0.0" y="666" width="600" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BqY-eD-Kan" id="GuP-42-wkR">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
@@ -395,6 +398,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnRegister" destination="K8d-L3-5cC" id="lEn-QP-vFL"/>
+                        <outlet property="btnTerms" destination="z43-wU-kKD" id="LU9-Sr-GaP"/>
                         <outlet property="fieldAcceptTerms" destination="Rxk-bw-9YQ" id="eYm-be-IjF"/>
                         <outlet property="fieldConfirmPassword" destination="PSG-Yq-ck9" id="zir-UO-5nd"/>
                         <outlet property="fieldEmail" destination="pt3-F8-5yT" id="PLB-aC-xT3"/>
