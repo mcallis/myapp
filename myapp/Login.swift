@@ -22,9 +22,7 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.fieldUserName.text = "admin"
-        self.fieldPassword.text = "admin"
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,21 +68,8 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
         mAppManager.autoLoggedIn = false
         performSegueWithIdentifier(Constants.Segues.fromLoginToMain, sender: self)
         self.resetFields()
-        /*
-        if fromLogOut {
-            dismiss()
-        } else {
-            
-        }*/
-        
-        //self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
-    func dismiss(){
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
+
     
     func canDoLogin() -> Bool{
         if fieldUserName.text!.isEmpty{
@@ -113,9 +98,5 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
             mAppManager.doLogOut()
         }
     }
-    
-    func setFromLogOut(){
-        self.fromLogOut = true
-    }
-}
+ }
 

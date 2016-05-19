@@ -20,12 +20,12 @@ class Signup: UITableViewControllerOwn, UITextFieldDelegate {
     @IBOutlet weak var btnRegister: UIBarButtonItem!
     @IBOutlet weak var fieldAcceptTerms: UISwitch!
   
-    
-
-
-    
     let mAppManager: AppManager = AppManager.sharedInstance
     var fromLogOut: Bool = false
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
