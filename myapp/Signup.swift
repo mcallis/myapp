@@ -19,6 +19,7 @@ class Signup: UITableViewControllerOwn, UITextFieldDelegate {
     @IBOutlet weak var fieldEmail: UITextFieldOwn!
     @IBOutlet weak var btnRegister: UIBarButtonItem!
     @IBOutlet weak var fieldAcceptTerms: UISwitch!
+    @IBOutlet weak var btnTerms: UIButton!
   
     let mAppManager: AppManager = AppManager.sharedInstance
     var fromLogOut: Bool = false
@@ -95,6 +96,33 @@ class Signup: UITableViewControllerOwn, UITextFieldDelegate {
         }
         
     }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        switch textField {
+        case fieldUsername:
+            fieldPassword.becomeFirstResponder()
+            
+        case fieldPassword:
+            fieldConfirmPassword.becomeFirstResponder()
+            
+        case fieldConfirmPassword:
+            fieldName.becomeFirstResponder()
+            
+        case fieldName:
+            fieldEmail.becomeFirstResponder()
+
+        case fieldEmail:
+            btnTerms.becomeFirstResponder()
+            
+        case btnTerms:
+            fieldAcceptTerms.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+
     
     func toMainApp(){
         mAppManager.autoLoggedIn = false
