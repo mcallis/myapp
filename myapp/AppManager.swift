@@ -19,6 +19,8 @@ class AppManager {
 
     init(){}
     
+    // USER REGISTRATION
+
     func doLogin(username: String, password: String, completion:(success: Bool, error: Fault!) -> Void){
         UserSession.login(username, password: password, response: { (registeredUser) in
             self.currentUser = registeredUser
@@ -64,6 +66,9 @@ class AppManager {
         self.autoLoggedIn = enabled
     }
     
+    
+    
+
     
     
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494C800C1CF110DC00409B35 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C800B1CF110DC00409B35 /* Place.swift */; };
+		494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C800E1CF111C300409B35 /* MyPlaces.swift */; };
 		49D342DD1CBD7A880010745D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D342DC1CBD7A880010745D /* AppDelegate.swift */; };
 		49D342DF1CBD7A880010745D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D342DE1CBD7A880010745D /* Login.swift */; };
 		49D342E21CBD7A880010745D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D342E01CBD7A880010745D /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		494C800B1CF110DC00409B35 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		494C800E1CF111C300409B35 /* MyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaces.swift; sourceTree = "<group>"; };
 		49D342D91CBD7A880010745D /* myapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D342DC1CBD7A880010745D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49D342DE1CBD7A880010745D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -115,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		494C800D1CF111A600409B35 /* myplaces */ = {
+			isa = PBXGroup;
+			children = (
+				494C800E1CF111C300409B35 /* MyPlaces.swift */,
+			);
+			name = myplaces;
+			sourceTree = "<group>";
+		};
 		49D342D01CBD7A880010745D = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				49D343101CBDB0650010745D /* User.swift */,
+				494C800B1CF110DC00409B35 /* Place.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -227,6 +240,7 @@
 		49D343251CBEF1D40010745D /* views */ = {
 			isa = PBXGroup;
 			children = (
+				494C800D1CF111A600409B35 /* myplaces */,
 				49D343361CC04BA50010745D /* TabBarController */,
 				49D343311CC024000010745D /* profile */,
 				49D3430A1CBDAC950010745D /* login */,
@@ -451,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49D343201CBDC6C50010745D /* ConnectionApi.swift in Sources */,
+				494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */,
 				49D343131CBDB1FA0010745D /* UITextFieldOwn.swift in Sources */,
 				49D3432C1CBF14D90010745D /* LaunchScreen.swift in Sources */,
 				49D343111CBDB0650010745D /* User.swift in Sources */,
@@ -462,6 +477,7 @@
 				49D342DF1CBD7A880010745D /* Login.swift in Sources */,
 				49D343381CC04BB30010745D /* TabBar.swift in Sources */,
 				49FE53AB1CC1B27F00C67ED5 /* UserSession.swift in Sources */,
+				494C800C1CF110DC00409B35 /* Place.swift in Sources */,
 				49D342DD1CBD7A880010745D /* AppDelegate.swift in Sources */,
 				49D343331CC024110010745D /* Profile.swift in Sources */,
 				49D343221CBE47910010745D /* UIAlertOwn.swift in Sources */,
