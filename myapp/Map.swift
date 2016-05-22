@@ -26,6 +26,8 @@ class Map: UIViewControllerOwn, CLLocationManagerDelegate, MKMapViewDelegate {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = btnSave
+        self.navigationItem.title = Constants.TitlesViews.addLocation
+        
         getLocation()
         
     }

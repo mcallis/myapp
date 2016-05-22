@@ -40,6 +40,7 @@ struct Constants {
     struct TitlesViews {
         static let signup               = "Sign Up"
         static let addPlace             = "Add Place"
+        static let addLocation          = "Add Location"
     }
     
     struct Notifications {

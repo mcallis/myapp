@@ -709,40 +709,12 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
             </objects>
             <point key="canvasLocation" x="3924" y="-1786"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="3yp-yo-bxJ">
-            <objects>
-                <tableViewController id="iBf-E7-Et9" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ivs-Dq-1zZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Th8-gs-lcB">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Th8-gs-lcB" id="Vas-eZ-rMF">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="iBf-E7-Et9" id="jIE-m9-BLz"/>
-                            <outlet property="delegate" destination="iBf-E7-Et9" id="aXP-pw-RXW"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GVK-KI-sBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4617" y="-1574"/>
-        </scene>
         <!--Add Place-->
         <scene sceneID="ujn-CU-dz6">
             <objects>
                 <tableViewController id="ABA-Ne-Mfk" customClass="AddPlace" customModule="myapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="2hG-t6-3H2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="2hG-t6-3H2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -871,32 +843,41 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                             </tableViewSection>
                             <tableViewSection headerTitle="IMAGES" id="Gbn-zJ-Lbi">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="zAD-Yj-w0L" detailTextLabel="ugB-91-cd2" style="IBUITableViewCellStyleValue1" id="Imn-kb-wcd">
-                                        <rect key="frame" x="0.0" y="660" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="300" id="Imn-kb-wcd">
+                                        <rect key="frame" x="0.0" y="660" width="600" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Imn-kb-wcd" id="gUu-o5-eM1">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Images" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zAD-Yj-w0L">
-                                                    <rect key="frame" x="15" y="12" width="53" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="num images" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ugB-91-cd2">
-                                                    <rect key="frame" x="497" y="12" width="88" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6N-op-9Wi">
+                                                    <rect key="frame" x="8" y="20" width="584" height="30"/>
+                                                    <state key="normal" title="Take a photo"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFn-GF-oot">
+                                                    <rect key="frame" x="8" y="58" width="584" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="eLY-vK-0AL"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Select photo"/>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" highlightedImage="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="P0u-Jw-XJm">
+                                                    <rect key="frame" x="8" y="96" width="584" height="196"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dFn-GF-oot" firstAttribute="trailing" secondItem="f6N-op-9Wi" secondAttribute="trailing" id="ABH-wN-5HJ"/>
+                                                <constraint firstItem="P0u-Jw-XJm" firstAttribute="leading" secondItem="gUu-o5-eM1" secondAttribute="leadingMargin" id="AuC-L3-neK"/>
+                                                <constraint firstItem="dFn-GF-oot" firstAttribute="top" secondItem="gUu-o5-eM1" secondAttribute="top" constant="58" id="Bvx-gC-grY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="P0u-Jw-XJm" secondAttribute="trailing" id="Rhg-u4-vyo"/>
+                                                <constraint firstItem="P0u-Jw-XJm" firstAttribute="top" secondItem="dFn-GF-oot" secondAttribute="bottom" constant="8" symbolic="YES" id="UYt-J1-CL6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="f6N-op-9Wi" secondAttribute="trailing" id="VbC-Qr-kfQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="P0u-Jw-XJm" secondAttribute="bottom" id="hDI-4E-sV4"/>
+                                                <constraint firstItem="f6N-op-9Wi" firstAttribute="leading" secondItem="gUu-o5-eM1" secondAttribute="leadingMargin" id="oOq-F5-Slt"/>
+                                                <constraint firstItem="dFn-GF-oot" firstAttribute="leading" secondItem="f6N-op-9Wi" secondAttribute="leading" id="pI0-X5-Q1r"/>
+                                                <constraint firstItem="dFn-GF-oot" firstAttribute="top" secondItem="f6N-op-9Wi" secondAttribute="bottom" constant="8" symbolic="YES" id="rLr-zT-nh5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="iBf-E7-Et9" kind="show" id="WO5-62-Iet"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -915,10 +896,13 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="800"/>
+                    <size key="freeformSize" width="600" height="1000"/>
                     <connections>
                         <outlet property="btnSave" destination="8cw-Ei-RIe" id="q8I-M3-OdQ"/>
+                        <outlet property="btnSelectPhoto" destination="dFn-GF-oot" id="I0T-JL-9Y7"/>
+                        <outlet property="btnTakePhoto" destination="f6N-op-9Wi" id="GnL-wh-q0k"/>
                         <outlet property="fieldDescription" destination="GM6-A1-LoB" id="Rk0-f3-opz"/>
+                        <outlet property="fieldImageView" destination="P0u-Jw-XJm" id="g0s-LX-nws"/>
                         <outlet property="fieldLatitude" destination="psZ-XT-nzg" id="gYU-HU-CNN"/>
                         <outlet property="fieldLongitude" destination="CT0-fn-xKp" id="pa5-nR-9KB"/>
                         <outlet property="fieldName" destination="1e6-h5-f2n" id="saT-Q1-0h1"/>
@@ -939,11 +923,11 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                         <viewControllerLayoutGuide type="bottom" id="Cun-ZZ-Hp9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wau-3M-0j2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6GQ-b9-1Qo">
-                                <rect key="frame" x="0.0" y="64" width="600" height="736"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1148,6 +1132,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
         <image name="info_icon" width="25" height="25"/>
         <image name="map_icon" width="25" height="25"/>
         <image name="myplaces_icon" width="25" height="25"/>
+        <image name="no_image" width="206" height="116"/>
         <image name="profile_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>

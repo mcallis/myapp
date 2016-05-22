@@ -18,6 +18,9 @@ class AddPlace: UITableViewControllerOwn {
     @IBOutlet weak var fieldLongitude: UITextField!
     @IBOutlet weak var fieldLatitude: UITextField!
     @IBOutlet weak var btnSave: UIBarButtonItem!
+    @IBOutlet weak var btnTakePhoto: UIButton!
+    @IBOutlet weak var btnSelectPhoto: UIButton!
+    @IBOutlet weak var fieldImageView: UIImageView!
     
     
     override func viewDidLoad() {
@@ -30,6 +33,10 @@ class AddPlace: UITableViewControllerOwn {
         fieldDescription!.layer.borderWidth = 0.5
         fieldDescription!.layer.cornerRadius = 5
         fieldDescription!.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.3).CGColor
+        
+        // Add placeholder image
+        let imagePlaceholder = UIImage(named: "no_image")
+        fieldImageView.image = imagePlaceholder
         
     }
     
