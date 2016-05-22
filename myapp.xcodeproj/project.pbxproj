@@ -12,6 +12,8 @@
 		494C80121CF128E200409B35 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80111CF128E200409B35 /* PlaceManager.swift */; };
 		494C80141CF1365A00409B35 /* AddPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80131CF1365A00409B35 /* AddPlace.swift */; };
 		4991F44C1CF1BB330045D0B7 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */; };
+		4991F44E1CF1D3410045D0B7 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44D1CF1D3410045D0B7 /* Map.swift */; };
+		4991F4501CF1EAB90045D0B7 /* PlaceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */; };
 		49D342DD1CBD7A880010745D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D342DC1CBD7A880010745D /* AppDelegate.swift */; };
 		49D342DF1CBD7A880010745D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D342DE1CBD7A880010745D /* Login.swift */; };
 		49D342E21CBD7A880010745D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D342E01CBD7A880010745D /* Main.storyboard */; };
@@ -63,6 +65,9 @@
 		494C80111CF128E200409B35 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 		494C80131CF1365A00409B35 /* AddPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlace.swift; sourceTree = "<group>"; };
 		4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		4991F44D1CF1D3410045D0B7 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceLocation.swift; sourceTree = "<group>"; };
+		4991F4521CF1F2900045D0B7 /* myapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "myapp-Bridging-Header.h"; sourceTree = "<group>"; };
 		49D342D91CBD7A880010745D /* myapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D342DC1CBD7A880010745D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49D342DE1CBD7A880010745D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 		494C800D1CF111A600409B35 /* myplaces */ = {
 			isa = PBXGroup;
 			children = (
+				4991F44D1CF1D3410045D0B7 /* Map.swift */,
 				494C800E1CF111C300409B35 /* MyPlaces.swift */,
 				494C80131CF1365A00409B35 /* AddPlace.swift */,
 				4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */,
@@ -141,6 +147,13 @@
 				49D3431F1CBDC6C50010745D /* ConnectionApi.swift */,
 			);
 			name = network;
+			sourceTree = "<group>";
+		};
+		4991F4511CF1F2770045D0B7 /* bridge */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = bridge;
 			sourceTree = "<group>";
 		};
 		49D342D01CBD7A880010745D = {
@@ -168,6 +181,8 @@
 		49D342DB1CBD7A880010745D /* myapp */ = {
 			isa = PBXGroup;
 			children = (
+				4991F4521CF1F2900045D0B7 /* myapp-Bridging-Header.h */,
+				4991F4511CF1F2770045D0B7 /* bridge */,
 				49D343251CBEF1D40010745D /* views */,
 				49D343191CBDBC7B0010745D /* appmanager */,
 				49D343141CBDB2720010745D /* owns */,
@@ -240,6 +255,7 @@
 				49D3431C1CBDC07C0010745D /* utils */,
 				49D343231CBE4A630010745D /* AppManager.swift */,
 				49FE53AA1CC1B27F00C67ED5 /* UserSession.swift */,
+				4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */,
 			);
 			name = appmanager;
 			sourceTree = "<group>";
@@ -491,6 +507,7 @@
 				49D343351CC024830010745D /* UITableViewControllerOwn.swift in Sources */,
 				494C80141CF1365A00409B35 /* AddPlace.swift in Sources */,
 				49D343241CBE4A630010745D /* AppManager.swift in Sources */,
+				4991F44E1CF1D3410045D0B7 /* Map.swift in Sources */,
 				49D343181CBDB37D0010745D /* UIViewControllerOwn.swift in Sources */,
 				49FE53A71CC1380D00C67ED5 /* AppFormViewController.swift in Sources */,
 				49D342DF1CBD7A880010745D /* Login.swift in Sources */,
@@ -506,6 +523,7 @@
 				49D343281CBEF1FD0010745D /* UITabBarControllerOwn.swift in Sources */,
 				49D3430C1CBDAF720010745D /* Signup.swift in Sources */,
 				49D3431B1CBDBC930010745D /* Constants.swift in Sources */,
+				4991F4501CF1EAB90045D0B7 /* PlaceLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +680,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uoc.myapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PODS_ROOT}/Headers/Public/Backendless-ios-SDK/Backendless-With-Media-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -686,6 +705,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uoc.myapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PODS_ROOT}/Headers/Public/Backendless-ios-SDK/Backendless-With-Media-Bridging-Header.h";
 			};
 			name = Release;
 		};

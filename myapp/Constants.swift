@@ -21,7 +21,7 @@ struct Constants {
         static let fromSignUpToMain     = "fromSignUpToMain"
         static let fromLogOut           = "UnwindLogOut"
         static let returnMyPlacesFromAddPlace = "returnMyPlacesFromAddPlace"
-    
+        static let returnFromAddLocation = "returnFromAddLocation"
     }
     
     struct ErrorMessage{

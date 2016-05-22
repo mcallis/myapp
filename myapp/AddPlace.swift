@@ -11,6 +11,7 @@ import Foundation
 class AddPlace: UITableViewControllerOwn {
     
     let mPlaceManager = PlaceManager()
+    var location: PlaceLocation!
     
     @IBOutlet weak var fieldName: UITextFieldOwn!
     @IBOutlet weak var fieldDescription: UITextView!
@@ -100,6 +101,16 @@ class AddPlace: UITableViewControllerOwn {
             })
  
         }
+    }
+    
+    
+    func setPlaceLocation(location: PlaceLocation){
+        self.location = location
+    }
+    
+    
+    @IBAction func returnFromAddLocation(segue: UIStoryboardSegue) {
+        
     }
     
     func alertError(message: String){

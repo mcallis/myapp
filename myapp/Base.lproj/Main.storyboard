@@ -707,7 +707,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ug-KG-RfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3948" y="-1474"/>
+            <point key="canvasLocation" x="3924" y="-1786"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="3yp-yo-bxJ">
@@ -735,7 +735,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVK-KI-sBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4633" y="-1413"/>
+            <point key="canvasLocation" x="4617" y="-1574"/>
         </scene>
         <!--Add Place-->
         <scene sceneID="ujn-CU-dz6">
@@ -926,13 +926,14 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Urf-im-HuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Xpx-uk-YOq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3948" y="-724"/>
+            <point key="canvasLocation" x="3916" y="-900"/>
         </scene>
-        <!--View Controller-->
+        <!--Map-->
         <scene sceneID="ehS-Fk-29b">
             <objects>
-                <viewController id="7GV-Y4-tF9" sceneMemberID="viewController">
+                <viewController id="7GV-Y4-tF9" customClass="Map" customModule="myapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="57B-WS-TCq"/>
                         <viewControllerLayoutGuide type="bottom" id="Cun-ZZ-Hp9"/>
@@ -947,6 +948,16 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Save" id="7xQ-IV-t4X">
+                            <connections>
+                                <action selector="saveLocation:" destination="7GV-Y4-tF9" id="zTU-6X-aeu"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <connections>
+                        <segue destination="Xpx-uk-YOq" kind="unwind" identifier="returnFromAddLocation" unwindAction="returnFromAddPlace:" id="Y02-DK-BfP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LhG-xd-NMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
