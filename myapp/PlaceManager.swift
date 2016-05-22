@@ -16,7 +16,7 @@ class PlaceManager {
     
     func save(newPlace: Place, response:(result: Place) -> Void, _error:(error: Fault!) -> Void){
         mConnectionApi.save(
-            Place.self,
+            Place.ofClass(),
             object: newPlace,
             response: { (result) in
                 let obj = result as! Place
@@ -31,7 +31,7 @@ class PlaceManager {
     
     func update(place: Place, response:(result: Place) -> Void, _error:(error: Fault!) -> Void) {
         mConnectionApi.update(
-            Place.self,
+            Place.ofClass(),
             object: place,
             response: { (result) in
                 let updatedPlace = result as! Place
@@ -46,7 +46,7 @@ class PlaceManager {
     
     func delete(place: Place, response:(result: AnyObject) -> Void, _error:(error: Fault!) -> Void)  {
         mConnectionApi.delete(
-            Place.self,
+            Place.ofClass(),
             object: place,
             response: { (result) in
                 print("Place has been deleted: \(result)")
@@ -58,9 +58,9 @@ class PlaceManager {
     }
     
     
-    func findAllElemente(response:(result: NSArray!) -> Void, _error:(error: Fault!) -> Void){
+    func findAllElements(response:(result: NSArray!) -> Void, _error:(error: Fault!) -> Void){
         mConnectionApi.findAllElements(
-            Place.self,
+            Place.ofClass(),
             response: { (result) in
                 let places = result.getCurrentPage()
                 response(result: places)
@@ -75,7 +75,7 @@ class PlaceManager {
     
     func findOne(objectID: String!, response:(result: Place) -> Void, _error:(error: Fault!) -> Void){
         mConnectionApi.findObjectById(
-            Place.self,
+            Place.ofClass(),
             objectID: objectID,
             response: { (result) in
                 let obj = result as! Place

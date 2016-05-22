@@ -20,6 +20,7 @@ struct Constants {
         static let fromLoginToMain      = "fromLoginToMain"
         static let fromSignUpToMain     = "fromSignUpToMain"
         static let fromLogOut           = "UnwindLogOut"
+        static let returnMyPlacesFromAddPlace = "returnMyPlacesFromAddPlace"
     
     }
     
@@ -30,10 +31,15 @@ struct Constants {
         static let passwordsDontMatch   = "The passwords don't match"
         static let mustAcceptTerms      = "You must accept the terms to register"
         static let emailisRequired      = "Email is required"
+        static let namePlaceRequired    = "Name is required"
+        static let descPlaceRequired    = "Description is required"
+        static let longPlaceRequired    = "Longitude is required"
+        static let latPlaceRequired     = "Latitude is required"
     }
     
     struct TitlesViews {
         static let signup               = "Sign Up"
+        static let addPlace             = "Add Place"
     }
     
     struct Notifications {

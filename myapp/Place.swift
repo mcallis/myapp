@@ -8,21 +8,21 @@
 
 import Foundation
 
-class Place {
+class Place: NSObject {
     
     var objectId: String?
     var created: NSDate?
     var updated: NSDate?
     var counter: Int = 0
     var isPublished: Bool = true
+    var name: String = ""
+    var desc: String = ""
+    var longitude: String = ""
+    var latitude: String = ""
     
     
-    init(){}
     
     
-    func save(){
-        
-    }
     
     
 }
