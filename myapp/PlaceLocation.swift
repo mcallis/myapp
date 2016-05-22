@@ -8,7 +8,13 @@
 
 import Foundation
 
-class PlaceLocation: CLLocation {
+class PlaceLocation: NSObject {
     
-   
+    var objectId: String?
+    var created: NSDate?
+    var updated: NSDate?
+    var counter: Int = 0
+    var isPublished: Bool = true
+    var longitude: String = ""
+    var latitude: String = ""
 }

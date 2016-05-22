@@ -16,30 +16,32 @@ class Map: UIViewControllerOwn, CLLocationManagerDelegate, MKMapViewDelegate {
     var isUpdatingLocation = false
     var lastLocationError: NSError?
     var location: CLLocation?
-    let regionRadius: CLLocationDistance = 1000
+    let regionRadius: CLLocationDistance = 500
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var btnSave: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = btnSave
         getLocation()
-        mapView.delegate = self
+        
     }
     
     
     @IBAction func saveLocation(sender: AnyObject) {
+        let appManager = AppManager.sharedInstance
+        appManager.setPlaceLocation(location!)
         self.performSegueWithIdentifier(Constants.Segues.returnFromAddLocation, sender: self)
+        //self.navigationController?.popViewControllerAnimated(true)
     }
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let addPlaceVC: AddPlace = segue.destinationViewController as! AddPlace
-        addPlaceVC.setPlaceLocation(location as! PlaceLocation)
-    }
-    
-    
     func centerMapOnLocation(location: CLLocation) {        
+        self.mapView.showsUserLocation = true
+        self.mapView.removeAnnotations(mapView.annotations)
         
         setRegion(location.coordinate)
         
@@ -54,6 +56,26 @@ class Map: UIViewControllerOwn, CLLocationManagerDelegate, MKMapViewDelegate {
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
+    
+    
+    
+    @IBAction func addPinToTouch(sender: UILongPressGestureRecognizer) {
+        
+        let loc = sender.locationInView(self.mapView)
+        
+        let locCoord = self.mapView.convertPoint(loc, toCoordinateFromView: self.mapView)
+        self.location = CLLocation(latitude: locCoord.latitude, longitude: locCoord.longitude)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = locCoord
+        
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.addAnnotation(annotation)
+    
+    }
+    
+    
+    
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -132,8 +154,10 @@ class Map: UIViewControllerOwn, CLLocationManagerDelegate, MKMapViewDelegate {
         }
     }
     
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         let newLocation = locations.last!
+    
         print("didUpdateLocations \(newLocation)")
         if newLocation.timestamp.timeIntervalSinceNow < -5 {
             return

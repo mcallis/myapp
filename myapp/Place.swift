@@ -17,8 +17,6 @@ class Place: NSObject {
     var isPublished: Bool = true
     var name: String = ""
     var desc: String = ""
-    var longitude: String = ""
-    var latitude: String = ""
     var images: NSArray!
     
     

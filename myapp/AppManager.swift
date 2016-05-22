@@ -16,6 +16,7 @@ class AppManager {
     static let sharedInstance = AppManager()
     var currentUser: User!
     var autoLoggedIn: Bool!
+    var placeLocation: CLLocation!
 
     init(){}
     
@@ -67,6 +68,15 @@ class AppManager {
     }
     
     
+    // PLACE LOCATION
+    
+    func setPlaceLocation(location: CLLocation){
+        self.placeLocation = location
+    }
+    
+    func getPlaceLocation() -> CLLocation{
+        return self.placeLocation!
+    }
     
 
     

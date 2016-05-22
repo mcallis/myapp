@@ -11,7 +11,7 @@ import Foundation
 class AddPlace: UITableViewControllerOwn {
     
     let mPlaceManager = PlaceManager()
-    var location: PlaceLocation!
+    var mLocation: CLLocation!
     
     @IBOutlet weak var fieldName: UITextFieldOwn!
     @IBOutlet weak var fieldDescription: UITextView!
@@ -26,8 +26,14 @@ class AddPlace: UITableViewControllerOwn {
         self.navigationItem.rightBarButtonItem = btnSave
         self.navigationItem.title = Constants.TitlesViews.addPlace
         
+        // Add border to textview
+        fieldDescription!.layer.borderWidth = 0.5
+        fieldDescription!.layer.cornerRadius = 5
+        fieldDescription!.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.3).CGColor
         
     }
+    
+
     
     @IBAction func saveAction(sender: AnyObject) {
         // Save place
@@ -93,24 +99,32 @@ class AddPlace: UITableViewControllerOwn {
                 place,
                 response: { (result) in
                     self.stopIndicator()
+                    // TODO: Save location
+                    
+                    // TODO: Save images
                     self.performSegueWithIdentifier(Constants.Segues.returnMyPlacesFromAddPlace, sender: self)
                 },
                 _error: { (error) in
                     self.stopIndicator()
                     self.alertError(error.message)
             })
+            
+            
  
         }
     }
     
     
-    func setPlaceLocation(location: PlaceLocation){
-        self.location = location
-    }
+    
     
     
     @IBAction func returnFromAddLocation(segue: UIStoryboardSegue) {
-        
+        mLocation = AppManager.sharedInstance.getPlaceLocation()
+        if mLocation != nil {
+            fieldLatitude.text = "\(mLocation.coordinate.latitude)"
+            fieldLongitude.text = "\(mLocation.coordinate.longitude)"
+        }
+
     }
     
     func alertError(message: String){

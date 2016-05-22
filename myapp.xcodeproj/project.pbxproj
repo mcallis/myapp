@@ -217,6 +217,7 @@
 		49D3430F1CBDB0470010745D /* models */ = {
 			isa = PBXGroup;
 			children = (
+				4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */,
 				49D343291CBF04BB0010745D /* Comment.swift */,
 				49D343101CBDB0650010745D /* User.swift */,
 				494C800B1CF110DC00409B35 /* Place.swift */,
@@ -245,7 +246,7 @@
 				49D3431C1CBDC07C0010745D /* utils */,
 				49D343231CBE4A630010745D /* AppManager.swift */,
 				49FE53AA1CC1B27F00C67ED5 /* UserSession.swift */,
-				4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */,
+				494C80111CF128E200409B35 /* PlaceManager.swift */,
 			);
 			name = appmanager;
 			sourceTree = "<group>";
@@ -255,7 +256,6 @@
 			children = (
 				49D3431D1CBDC08C0010745D /* UserDefaults.swift */,
 				49D3431A1CBDBC930010745D /* Constants.swift */,
-				494C80111CF128E200409B35 /* PlaceManager.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
