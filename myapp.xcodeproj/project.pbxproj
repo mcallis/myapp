@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		494C800C1CF110DC00409B35 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C800B1CF110DC00409B35 /* Place.swift */; };
 		494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C800E1CF111C300409B35 /* MyPlaces.swift */; };
+		494C80121CF128E200409B35 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80111CF128E200409B35 /* PlaceManager.swift */; };
 		49D342DD1CBD7A880010745D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D342DC1CBD7A880010745D /* AppDelegate.swift */; };
 		49D342DF1CBD7A880010745D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D342DE1CBD7A880010745D /* Login.swift */; };
 		49D342E21CBD7A880010745D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D342E01CBD7A880010745D /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		494C800B1CF110DC00409B35 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		494C800E1CF111C300409B35 /* MyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaces.swift; sourceTree = "<group>"; };
+		494C80111CF128E200409B35 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 		49D342D91CBD7A880010745D /* myapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D342DC1CBD7A880010745D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49D342DE1CBD7A880010745D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 				494C800E1CF111C300409B35 /* MyPlaces.swift */,
 			);
 			name = myplaces;
+			sourceTree = "<group>";
+		};
+		494C80101CF128C500409B35 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				49D3431F1CBDC6C50010745D /* ConnectionApi.swift */,
+			);
+			name = network;
 			sourceTree = "<group>";
 		};
 		49D342D01CBD7A880010745D = {
@@ -196,6 +206,7 @@
 		49D3430F1CBDB0470010745D /* models */ = {
 			isa = PBXGroup;
 			children = (
+				49D343291CBF04BB0010745D /* Comment.swift */,
 				49D343101CBDB0650010745D /* User.swift */,
 				494C800B1CF110DC00409B35 /* Place.swift */,
 			);
@@ -219,9 +230,10 @@
 		49D343191CBDBC7B0010745D /* appmanager */ = {
 			isa = PBXGroup;
 			children = (
+				494C80101CF128C500409B35 /* network */,
 				49D3431C1CBDC07C0010745D /* utils */,
-				49D3431A1CBDBC930010745D /* Constants.swift */,
 				49D343231CBE4A630010745D /* AppManager.swift */,
+				49FE53AA1CC1B27F00C67ED5 /* UserSession.swift */,
 			);
 			name = appmanager;
 			sourceTree = "<group>";
@@ -229,10 +241,9 @@
 		49D3431C1CBDC07C0010745D /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				49FE53AA1CC1B27F00C67ED5 /* UserSession.swift */,
 				49D3431D1CBDC08C0010745D /* UserDefaults.swift */,
-				49D3431F1CBDC6C50010745D /* ConnectionApi.swift */,
-				49D343291CBF04BB0010745D /* Comment.swift */,
+				49D3431A1CBDBC930010745D /* Constants.swift */,
+				494C80111CF128E200409B35 /* PlaceManager.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -475,6 +486,7 @@
 				49D343181CBDB37D0010745D /* UIViewControllerOwn.swift in Sources */,
 				49FE53A71CC1380D00C67ED5 /* AppFormViewController.swift in Sources */,
 				49D342DF1CBD7A880010745D /* Login.swift in Sources */,
+				494C80121CF128E200409B35 /* PlaceManager.swift in Sources */,
 				49D343381CC04BB30010745D /* TabBar.swift in Sources */,
 				49FE53AB1CC1B27F00C67ED5 /* UserSession.swift in Sources */,
 				494C800C1CF110DC00409B35 /* Place.swift in Sources */,

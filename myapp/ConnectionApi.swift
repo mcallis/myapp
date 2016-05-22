@@ -75,45 +75,41 @@ class ConnectionApi {
     
     // OBJECT MANAGE
 
-    func getMyPlacesDataStore(_entity: AnyObject) -> AnyObject!{
-        return backendless.data.of(_entity.ofClass())
+    func getMyPlacesDataStore(_entity: AnyClass) -> AnyObject!{
+        return backendless.data.of(_entity)
     }
     
-    func save(_entity: AnyObject, object: AnyObject, response:(result: AnyObject) -> Void, _error:(error: Fault!) -> Void){
+    func save(_entity: AnyClass, object: AnyObject, response:(result: AnyObject) -> Void, _error:(fault: Fault!) -> Void){
         let dataStore = getMyPlacesDataStore(_entity)
         
         // save object asynchronously
         dataStore.save(
             object,
             response: { (result: AnyObject!) -> Void in
-                //let obj = result
                 response(result: result)
-                //print("Place has been saved: \(obj.objectId)")
             },
             error: { (fault: Fault!) -> Void in
-                _error(error: fault)
-                //print("fServer reported an error: \(fault)")
+                _error(fault: fault)
+                print("Server reported an error: \(fault) on Save method")
         })
     }
     
-    func update(_entity: AnyObject, object: AnyObject, response:(result: AnyObject) -> Void, _error:(error: Fault!) -> Void){
+    func update(_entity: AnyClass, object: AnyObject, response:(result: AnyObject) -> Void, _error:(fault: Fault!) -> Void){
         let dataStore = getMyPlacesDataStore(_entity)
         
         // update object asynchronously
         dataStore.save(
             object,
             response: { (result: AnyObject!) -> Void in
-               // let updatedPlace = result as! Place
                 response(result: result)
-                //print("Place has been updated: \(updatedPlace.objectId)")
             },
             error: { (fault: Fault!) -> Void in
-                _error(error: fault)
-                //print("Server reported an error (2): \(fault)")
+                _error(fault: fault)
+                print("Server reported an error: \(fault) on Update method")
         })
     }
     
-    func delete(_entity: AnyObject, object: AnyObject, response:(result: AnyObject) -> Void, _error:(error: Fault!) -> Void){
+    func delete(_entity: AnyClass, object: AnyObject, response:(result: AnyObject) -> Void, _error:(fault: Fault!) -> Void){
         let dataStore = getMyPlacesDataStore(_entity)
         
         // now delete the saved object
@@ -121,15 +117,14 @@ class ConnectionApi {
             object,
             response: { (result: AnyObject!) -> Void in
                 response(result: result)
-                print("Place has been deleted: \(result)")
             },
             error: { (fault: Fault!) -> Void in
-                _error(error: fault)
-                print("Server reported an error: \(fault)")
+                _error(fault: fault)
+                print("Server reported an error: \(fault) on Delete method")
         })
     }
     
-    func describeSchema(_entity: AnyObject, object: AnyObject, _entityString: String){
+    func describeSchema(_entity: AnyClass, object: AnyObject, _entityString: String){
         let dataStore = getMyPlacesDataStore(_entity)
 
         // save object asynchronously
@@ -148,43 +143,39 @@ class ConnectionApi {
                         }
                     },
                     error: { (fault: Fault!) -> Void in
-                        print("Server reported an error (2): \(fault)")
+                        print("Server reported an error (2): \(fault) on describeSchema method")
                 })
                 
             },
             error: { (fault: Fault!) -> Void in
-                print("Server reported an error (1): \(fault)")
+                print("Server reported an error (1): \(fault) on describeSchema method")
         })
     }
     
-    func findAllElements(_entity: AnyObject, response:(result: BackendlessCollection!) -> Void, _error:(error: Fault!) -> Void){
+    func findAllElements(_entity: AnyClass, response:(result: BackendlessCollection!) -> Void, _error:(error: Fault!) -> Void){
         let dataStore = getMyPlacesDataStore(_entity)
         
         dataStore.find(
             { (result: BackendlessCollection!) -> Void in
                 response(result: result)
-                /*let contacts = result.getCurrentPage()
-                for obj in contacts {
-                    print("\(obj)")
-                }*/
             },
             error: { (fault: Fault!) -> Void in
                 _error(error: fault)
-                print("Server reported an error: \(fault)")
+                print("Server reported an error: \(fault) on findAllElements method")
         })
     }
     
-    func findObjectById(_entity: AnyObject, objectID: String!, response:(result: AnyObject!) -> Void, _error:(error: Fault!) -> Void){
+    func findObjectById(_entity: AnyClass, objectID: String!, response:(result: AnyObject!) -> Void, _error:(error: Fault!) -> Void){
         let dataStore = getMyPlacesDataStore(_entity)
         
         dataStore.findID(
             objectID,
             response: { (result: AnyObject!) -> Void in
                 response(result: result)
-                //print("Contact has been found: \(foundContact.objectId)")
+                //
             },
             error: { (fault: Fault!) -> Void in
-                print("Server reported an error: \(fault)")
+                print("Server reported an error: \(fault) on findObjectById method")
         })
     }
     

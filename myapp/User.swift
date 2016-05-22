@@ -14,16 +14,7 @@ class User {
     var name        = ""
     var email       = ""
     var logged      = false
-    
-    init(){}
-    
-       
-    func get(loggedInUser: BackendlessUser){
-        self.username = loggedInUser.getProperty("username") as! String
-        self.password = loggedInUser.password
-        self.name     = loggedInUser.name
         
-    }
-
+    
     
 }
