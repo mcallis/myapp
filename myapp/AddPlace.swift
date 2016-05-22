@@ -91,8 +91,8 @@ class AddPlace: UITableViewControllerOwn {
             let place = Place()
             place.name = namePlace!
             place.desc = descPlace!
-            place.longitude = longPlace!
-            place.latitude = latPlace!
+            place.location.longitude = Double(longPlace!)!
+            place.location.latitude = Double(latPlace!)!
             
             startIndicator()
             mPlaceManager.save(

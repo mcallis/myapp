@@ -15,6 +15,15 @@ class PlaceLocation: NSObject {
     var updated: NSDate?
     var counter: Int = 0
     var isPublished: Bool = true
-    var longitude: String = ""
-    var latitude: String = ""
+    var longitude: Double = 0.0
+    var latitude: Double = 0.0
+    
+    override init(){}
+    
+    init(latitude: Double, longitude: Double){
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
+    
 }
