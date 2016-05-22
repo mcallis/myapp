@@ -68,9 +68,13 @@ class MyPlaces: UITableViewControllerOwn {
     
     func setImageForCell(cell: PlaceCell, indexPath: NSIndexPath){
         let place = listPlaces[indexPath.row] as! Place
-        let image = UIImage(named: "info_icon")
+        let image = UIImage(named: "no_image")
         
-        cell.customImage.image = image
+        if place.images == nil || place.images.count == 0 {
+            cell.customImage.image = image
+        } else {
+            cell.customImage.image = place.images[0] as? UIImage
+        }
     }
     
     func setTitleForCell(cell: PlaceCell, indexPath: NSIndexPath){

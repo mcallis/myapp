@@ -19,6 +19,7 @@ class Place: NSObject {
     var desc: String = ""
     var longitude: String = ""
     var latitude: String = ""
+    var images: NSArray!
     
     
     
