@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49254D741CF22C930005BEED /* PlaceLocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49254D731CF22C930005BEED /* PlaceLocationHelper.swift */; };
 		494C800C1CF110DC00409B35 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C800B1CF110DC00409B35 /* Place.swift */; };
 		494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C800E1CF111C300409B35 /* MyPlaces.swift */; };
 		494C80121CF128E200409B35 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80111CF128E200409B35 /* PlaceManager.swift */; };
@@ -61,7 +60,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		49254D731CF22C930005BEED /* PlaceLocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceLocationHelper.swift; sourceTree = "<group>"; };
 		494C800B1CF110DC00409B35 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		494C800E1CF111C300409B35 /* MyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaces.swift; sourceTree = "<group>"; };
 		494C80111CF128E200409B35 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 				49D343231CBE4A630010745D /* AppManager.swift */,
 				49FE53AA1CC1B27F00C67ED5 /* UserSession.swift */,
 				494C80111CF128E200409B35 /* PlaceManager.swift */,
-				49254D731CF22C930005BEED /* PlaceLocationHelper.swift */,
 			);
 			name = appmanager;
 			sourceTree = "<group>";
@@ -512,7 +509,6 @@
 				49D343331CC024110010745D /* Profile.swift in Sources */,
 				49D343221CBE47910010745D /* UIAlertOwn.swift in Sources */,
 				49D3431E1CBDC08C0010745D /* UserDefaults.swift in Sources */,
-				49254D741CF22C930005BEED /* PlaceLocationHelper.swift in Sources */,
 				49D343161CBDB2840010745D /* UIButtonOwn.swift in Sources */,
 				49D343281CBEF1FD0010745D /* UITabBarControllerOwn.swift in Sources */,
 				49D3430C1CBDAF720010745D /* Signup.swift in Sources */,
