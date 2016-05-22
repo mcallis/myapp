@@ -519,7 +519,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tg-Og-bhx">
                                             <rect key="frame" x="8" y="157" width="584" height="84"/>
-                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -942,11 +942,17 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6GQ-b9-1Qo">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6GQ-b9-1Qo">
+                                <rect key="frame" x="0.0" y="64" width="600" height="736"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6GQ-b9-1Qo" firstAttribute="top" secondItem="57B-WS-TCq" secondAttribute="bottom" id="1am-lk-xd3"/>
+                            <constraint firstItem="6GQ-b9-1Qo" firstAttribute="centerX" secondItem="wau-3M-0j2" secondAttribute="centerX" id="T0M-bw-e4e"/>
+                            <constraint firstItem="6GQ-b9-1Qo" firstAttribute="leading" secondItem="wau-3M-0j2" secondAttribute="leading" id="cUm-HS-ruh"/>
+                            <constraint firstItem="6GQ-b9-1Qo" firstAttribute="centerY" secondItem="wau-3M-0j2" secondAttribute="centerY" constant="32" id="fUM-G8-jAm"/>
+                        </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem title="Save" id="7xQ-IV-t4X">
@@ -956,6 +962,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                         </barButtonItem>
                     </toolbarItems>
                     <connections>
+                        <outlet property="mapView" destination="6GQ-b9-1Qo" id="xy9-Sm-3MB"/>
                         <segue destination="Xpx-uk-YOq" kind="unwind" identifier="returnFromAddLocation" unwindAction="returnFromAddPlace:" id="Y02-DK-BfP"/>
                     </connections>
                 </viewController>

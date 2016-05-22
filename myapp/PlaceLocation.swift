@@ -8,13 +8,7 @@
 
 import Foundation
 
-class PlaceLocation: NSObject {
+class PlaceLocation: CLLocation {
     
-    var longitude: Double = 0.0
-    var latitude: Double = 0.0
-    
-    init(longitude: Double, latitude: Double){
-        self.longitude = longitude
-        self.latitude = longitude
-    }
+   
 }

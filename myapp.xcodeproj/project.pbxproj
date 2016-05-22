@@ -67,7 +67,6 @@
 		4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		4991F44D1CF1D3410045D0B7 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceLocation.swift; sourceTree = "<group>"; };
-		4991F4521CF1F2900045D0B7 /* myapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "myapp-Bridging-Header.h"; sourceTree = "<group>"; };
 		49D342D91CBD7A880010745D /* myapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D342DC1CBD7A880010745D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49D342DE1CBD7A880010745D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -149,13 +148,6 @@
 			name = network;
 			sourceTree = "<group>";
 		};
-		4991F4511CF1F2770045D0B7 /* bridge */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = bridge;
-			sourceTree = "<group>";
-		};
 		49D342D01CBD7A880010745D = {
 			isa = PBXGroup;
 			children = (
@@ -181,8 +173,6 @@
 		49D342DB1CBD7A880010745D /* myapp */ = {
 			isa = PBXGroup;
 			children = (
-				4991F4521CF1F2900045D0B7 /* myapp-Bridging-Header.h */,
-				4991F4511CF1F2770045D0B7 /* bridge */,
 				49D343251CBEF1D40010745D /* views */,
 				49D343191CBDBC7B0010745D /* appmanager */,
 				49D343141CBDB2720010745D /* owns */,
