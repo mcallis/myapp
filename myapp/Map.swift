@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Map: UIViewControllerOwn, CLLocationManagerDelegate, MKMapViewDelegate {
+class Map: UIViewControllerOwn, CLLocationManagerDelegate {
     private var indicador: UIActivityIndicatorView = UIActivityIndicatorView()
     
     let locationManager = CLLocationManager()

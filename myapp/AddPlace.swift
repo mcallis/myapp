@@ -33,11 +33,7 @@ class AddPlace: UITableViewControllerOwn, UITextFieldDelegate, UIImagePickerCont
         fieldDescription!.layer.borderWidth = 0.5
         fieldDescription!.layer.cornerRadius = 5
         fieldDescription!.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.3).CGColor
-        
-        fieldName.text = "provatest"
-        fieldDescription.text = "aldjkfalfjlasjdlfajsdj"
-        fieldLongitude.text = ""
-        fieldLatitude.text = ""
+    
     }
     
     @IBAction func saveAction(sender: AnyObject) {
