@@ -59,8 +59,11 @@ class MyPlaces: UITableViewControllerOwn {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController")
-        self.navigationController?.pushViewController(detailVC!, animated: true)
+        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        let currentPlace: Place = listPlaces[indexPath.row] as! Place
+        detailVC.currentPlace = currentPlace
+                
+        self.navigationController?.pushViewController(detailVC, animated: true)
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }

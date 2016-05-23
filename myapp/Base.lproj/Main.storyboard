@@ -595,16 +595,16 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="hNA-46-xbY">
+                            <tableViewSection id="hNA-46-xbY">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="179" id="fJS-eC-Ic6">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="179"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fJS-eC-Ic6" id="Cig-5E-cdx">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LSa-RF-mwe">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LSa-RF-mwe">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                                 </imageView>
                                             </subviews>
@@ -617,7 +617,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="t73-z7-cIe">
-                                        <rect key="frame" x="0.0" y="207" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="179" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t73-z7-cIe" id="kCl-dE-YLv">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -633,7 +633,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="158" id="cbT-Kc-iVT">
-                                        <rect key="frame" x="0.0" y="251" width="600" height="158"/>
+                                        <rect key="frame" x="0.0" y="223" width="600" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cbT-Kc-iVT" id="jt8-xa-J5N">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="158"/>
@@ -648,15 +648,15 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                                 </textView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Pu4-PZ-AFl" secondAttribute="bottom" constant="19" id="HBD-XX-vds"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Pu4-PZ-AFl" secondAttribute="trailing" id="HaO-KG-cHf"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="Pu4-PZ-AFl" secondAttribute="leading" id="Nmp-JE-AHv"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Pu4-PZ-AFl" secondAttribute="bottom" constant="19" id="g60-di-YPZ"/>
                                                 <constraint firstItem="Pu4-PZ-AFl" firstAttribute="top" secondItem="jt8-xa-J5N" secondAttribute="topMargin" constant="-15" id="y2i-xj-RuT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="BSS-l1-jDU">
-                                        <rect key="frame" x="0.0" y="409" width="600" height="150"/>
+                                        <rect key="frame" x="0.0" y="381" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BSS-l1-jDU" id="l74-4Z-Oas">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
@@ -675,7 +675,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="ilo-jj-4PI">
-                                        <rect key="frame" x="0.0" y="559" width="600" height="74"/>
+                                        <rect key="frame" x="0.0" y="531" width="600" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ilo-jj-4PI" id="RsJ-Q4-BL4">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
@@ -686,6 +686,9 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                                     <state key="normal" title="Delete place">
                                                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="deletePlace:" destination="Ifz-CF-tJ4" eventType="touchUpInside" id="rZh-du-uap"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -704,6 +707,12 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                             <outlet property="delegate" destination="Ifz-CF-tJ4" id="1BO-oh-sVf"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="fieldDescription" destination="Pu4-PZ-AFl" id="wc0-hm-4Ok"/>
+                        <outlet property="fieldName" destination="1Hm-0k-PVu" id="6gv-mS-cK8"/>
+                        <outlet property="imageView" destination="LSa-RF-mwe" id="x1T-Re-Tao"/>
+                        <outlet property="mapView" destination="NA7-Te-RC5" id="zzu-ls-ixu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ug-KG-RfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
