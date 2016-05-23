@@ -39,6 +39,7 @@
 		49D343351CC024830010745D /* UITableViewControllerOwn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D343341CC024830010745D /* UITableViewControllerOwn.swift */; };
 		49D343381CC04BB30010745D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D343371CC04BB30010745D /* TabBar.swift */; };
 		49F5C0181CF38842005C65B0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5C0171CF38842005C65B0 /* Image.swift */; };
+		49F5C01A1CF3A00D005C65B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5C0191CF3A00D005C65B0 /* DetailViewController.swift */; };
 		49FE53A71CC1380D00C67ED5 /* AppFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE53A61CC1380D00C67ED5 /* AppFormViewController.swift */; };
 		49FE53AB1CC1B27F00C67ED5 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE53AA1CC1B27F00C67ED5 /* UserSession.swift */; };
 		A657CA4B24D60EE72536DF2C /* Pods_myapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14C084C6CB17CD26AC5A348 /* Pods_myapp.framework */; };
@@ -101,6 +102,7 @@
 		49D343341CC024830010745D /* UITableViewControllerOwn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewControllerOwn.swift; sourceTree = "<group>"; };
 		49D343371CC04BB30010745D /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		49F5C0171CF38842005C65B0 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		49F5C0191CF3A00D005C65B0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		49FE53A61CC1380D00C67ED5 /* AppFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFormViewController.swift; sourceTree = "<group>"; };
 		49FE53AA1CC1B27F00C67ED5 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		7C508820797DDF5FB75EE87A /* Pods-myapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myapp/Pods-myapp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				494C800E1CF111C300409B35 /* MyPlaces.swift */,
 				494C80131CF1365A00409B35 /* AddPlace.swift */,
 				4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */,
+				49F5C0191CF3A00D005C65B0 /* DetailViewController.swift */,
 			);
 			name = myplaces;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				49D343161CBDB2840010745D /* UIButtonOwn.swift in Sources */,
 				49D343281CBEF1FD0010745D /* UITabBarControllerOwn.swift in Sources */,
 				49D3430C1CBDAF720010745D /* Signup.swift in Sources */,
+				49F5C01A1CF3A00D005C65B0 /* DetailViewController.swift in Sources */,
 				49D3431B1CBDBC930010745D /* Constants.swift in Sources */,
 				4991F4501CF1EAB90045D0B7 /* PlaceLocation.swift in Sources */,
 			);

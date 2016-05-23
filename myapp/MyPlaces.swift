@@ -57,6 +57,14 @@ class MyPlaces: UITableViewControllerOwn {
     }
     
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController")
+        self.navigationController?.pushViewController(detailVC!, animated: true)
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath) as! PlaceCell
 
@@ -67,15 +75,35 @@ class MyPlaces: UITableViewControllerOwn {
         return cell
     }
     
+    
     func setImageForCell(cell: PlaceCell, indexPath: NSIndexPath){
         let place = listPlaces[indexPath.row] as! Place
         let image = UIImage(named: "no_image")
         
-        if place.images == nil || place.images.count == 0 {
+        if place.urlImage == nil {
             cell.customImage.image = image
         } else {
-            cell.customImage.image = place.images[0] as? UIImage
+            downloadImage(NSURL(string: place.urlImage)!, imageView: cell.customImage)
         }
+    }
+    
+    func downloadImage(url: NSURL, imageView: UIImageView!){
+        print("Download Started")
+        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+        getDataFromUrl(url) { (data, response, error)  in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                guard let data = data where error == nil else { return }
+                print(response?.suggestedFilename ?? "")
+                print("Download Finished")
+                imageView.image = UIImage(data: data)
+            }
+        }
+    }
+    
+    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
     }
     
     func setTitleForCell(cell: PlaceCell, indexPath: NSIndexPath){

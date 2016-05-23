@@ -17,7 +17,6 @@ class Place: NSObject {
     var isPublished: Bool = true
     var name: String = ""
     var desc: String = ""
-    var images: NSArray!
     var location = PlaceLocation()
     var urlImage: String!
     
