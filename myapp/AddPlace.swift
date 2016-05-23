@@ -6,25 +6,25 @@
 //  Copyright © 2016 uoc. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class AddPlace: UITableViewControllerOwn {
+class AddPlace: UITableViewControllerOwn, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let mPlaceManager = PlaceManager()
     var mLocation: CLLocation!
+    var mImage: UIImage!
     
     @IBOutlet weak var fieldName: UITextFieldOwn!
     @IBOutlet weak var fieldDescription: UITextView!
     @IBOutlet weak var fieldLongitude: UITextField!
     @IBOutlet weak var fieldLatitude: UITextField!
     @IBOutlet weak var btnSave: UIBarButtonItem!
-    @IBOutlet weak var btnTakePhoto: UIButton!
-    @IBOutlet weak var btnSelectPhoto: UIButton!
-    @IBOutlet weak var fieldImageView: UIImageView!
-    
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabBarController?.tabBar.hidden = true
         
         self.navigationItem.rightBarButtonItem = btnSave
         self.navigationItem.title = Constants.TitlesViews.addPlace
@@ -34,18 +34,34 @@ class AddPlace: UITableViewControllerOwn {
         fieldDescription!.layer.cornerRadius = 5
         fieldDescription!.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.3).CGColor
         
-        // Add placeholder image
-        let imagePlaceholder = UIImage(named: "no_image")
-        fieldImageView.image = imagePlaceholder
-        
+        fieldName.text = "provatest"
+        fieldDescription.text = "aldjkfalfjlasjdlfajsdj"
+        fieldLongitude.text = ""
+        fieldLatitude.text = ""
     }
-    
-
     
     @IBAction func saveAction(sender: AnyObject) {
         // Save place
         savePlace()
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        switch textField {
+        case fieldName:
+            fieldDescription.becomeFirstResponder()
+            
+        case fieldDescription:
+            fieldLongitude.becomeFirstResponder()
+            
+        case fieldLongitude:
+            fieldLatitude.becomeFirstResponder()
+            
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+
     
     func savePlace(){
         let namePlace = fieldName.text
@@ -86,6 +102,10 @@ class AddPlace: UITableViewControllerOwn {
             fieldLatitude.backgroundColor = colorOK
         }
         
+        if mImage == nil {
+           errors.append(Constants.ErrorMessage.imageRequired)
+        }
+        
         let numErrors = errors.count
         if numErrors > 0 {
             // Show Alert
@@ -102,28 +122,61 @@ class AddPlace: UITableViewControllerOwn {
             place.location.latitude = Double(latPlace!)!
             
             startIndicator()
-            mPlaceManager.save(
-                place,
-                response: { (result) in
-                    self.stopIndicator()
-                    // TODO: Save location
-                    
-                    // TODO: Save images
-                    self.performSegueWithIdentifier(Constants.Segues.returnMyPlacesFromAddPlace, sender: self)
-                },
-                _error: { (error) in
+            // Get url image
+            let imageName = "image_" + place.name
+            mPlaceManager.uploadImage(mImage, imageName: imageName, response: { (file) in
+                place.urlImage = file.fileURL
+                // Save place
+                self.uploadPlace(place)
+                
+                }, _error: { (error) in
                     self.stopIndicator()
                     self.alertError(error.message)
             })
-            
-            
- 
         }
     }
     
+    func uploadPlace(place: Place){
+        mPlaceManager.save(
+            place,
+            response: { (result) in
+                self.stopIndicator()
+                self.performSegueWithIdentifier(Constants.Segues.returnMyPlacesFromAddPlace, sender: self)
+            },
+            _error: { (error) in
+                self.stopIndicator()
+                self.alertError(error.message)
+        })
+
+    }
+    
+    @IBAction func takePhoto(sender: AnyObject) {
+        let picker: UIImagePickerController = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    @IBAction func selectPhoto(sender: AnyObject) {
+        let picker: UIImagePickerController = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        self.imageView.image = chosenImage
+        self.mImage = chosenImage
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
-    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func returnFromAddLocation(segue: UIStoryboardSegue) {
         mLocation = AppManager.sharedInstance.getPlaceLocation()

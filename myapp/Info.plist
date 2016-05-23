@@ -6,10 +6,6 @@
 	<string>This application needs access to the GPS</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en_US</string>
-	<key>CFBundleDisplayName</key>
-	<string></string>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

@@ -179,4 +179,23 @@ class ConnectionApi {
         })
     }
     
+    // FILES MANAGEMENT
+    
+    func uploadFile(image: UIImage, imageName: String, response:(file: BackendlessFile!) -> Void, _error:(error: Fault!) -> Void) {
+        print("\n============ Uploading files with the ASYNC API ============")
+        
+        let data = UIImageJPEGRepresentation(image, 0.5)
+        let path = "myfiles/" + imageName + ".jpg"
+        backendless.fileService.upload(path, content: data, overwrite: true, response: { (file: BackendlessFile!) in
+            response(file: file)
+            },
+            error: { (fault: Fault!) -> Void in
+                _error(error: fault)
+                print("Server reported an error: \(fault) on uploadFile method")
+        })
+        
+    }
+    
+    
+    
 }

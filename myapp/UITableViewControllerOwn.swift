@@ -13,6 +13,7 @@ class UITableViewControllerOwn: UITableViewController {
     private var indicador: UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.prepareActivityIndicatorView()
     }
     

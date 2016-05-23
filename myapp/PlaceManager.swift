@@ -87,4 +87,14 @@ class PlaceManager {
         }
     }
     
+    
+    func uploadImage(image: UIImage, imageName: String, response:(file: BackendlessFile!) -> Void, _error:(error: Fault!) -> Void){
+        mConnectionApi.uploadFile(image, imageName: imageName,
+                                  response: { (file) in
+                                    response(file: file)
+            }) { (error) in
+                _error(error: error)
+        }
+    }
+    
 }

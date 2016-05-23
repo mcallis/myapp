@@ -22,6 +22,7 @@ struct Constants {
         static let fromLogOut           = "UnwindLogOut"
         static let returnMyPlacesFromAddPlace = "returnMyPlacesFromAddPlace"
         static let returnFromAddLocation = "returnFromAddLocation"
+        static let toPhotoAlbum         = "toPhotoAlbum"
     }
     
     struct ErrorMessage{
@@ -35,6 +36,7 @@ struct Constants {
         static let descPlaceRequired    = "Description is required"
         static let longPlaceRequired    = "Longitude is required"
         static let latPlaceRequired     = "Latitude is required"
+        static let imageRequired        = "Image is required"
     }
     
     struct TitlesViews {

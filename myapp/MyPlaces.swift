@@ -25,6 +25,7 @@ class MyPlaces: UITableViewControllerOwn {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.hidden = false
         getData()
     }
     
