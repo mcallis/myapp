@@ -38,6 +38,9 @@
 		49D343331CC024110010745D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D343321CC024110010745D /* Profile.swift */; };
 		49D343351CC024830010745D /* UITableViewControllerOwn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D343341CC024830010745D /* UITableViewControllerOwn.swift */; };
 		49D343381CC04BB30010745D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D343371CC04BB30010745D /* TabBar.swift */; };
+		49F1A7661D108EDE005F8683 /* PlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1A7651D108EDE005F8683 /* PlaceImage.swift */; };
+		49F1A7681D108EE8005F8683 /* PlaceImageWithData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1A7671D108EE8005F8683 /* PlaceImageWithData.swift */; };
+		49F1A76A1D108F52005F8683 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1A7691D108F52005F8683 /* Util.swift */; };
 		49F5C0181CF38842005C65B0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5C0171CF38842005C65B0 /* Image.swift */; };
 		49F5C01A1CF3A00D005C65B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5C0191CF3A00D005C65B0 /* DetailViewController.swift */; };
 		49FE53A71CC1380D00C67ED5 /* AppFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE53A61CC1380D00C67ED5 /* AppFormViewController.swift */; };
@@ -101,6 +104,9 @@
 		49D343321CC024110010745D /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		49D343341CC024830010745D /* UITableViewControllerOwn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewControllerOwn.swift; sourceTree = "<group>"; };
 		49D343371CC04BB30010745D /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		49F1A7651D108EDE005F8683 /* PlaceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceImage.swift; path = "../../../../Practica2-Solucion/MyPlaces/MyPlaces/PlaceImage.swift"; sourceTree = "<group>"; };
+		49F1A7671D108EE8005F8683 /* PlaceImageWithData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceImageWithData.swift; path = "../../../../Practica2-Solucion/MyPlaces/MyPlaces/PlaceImageWithData.swift"; sourceTree = "<group>"; };
+		49F1A7691D108F52005F8683 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = "../../../../Practica2-Solucion/MyPlaces/MyPlaces/Util.swift"; sourceTree = "<group>"; };
 		49F5C0171CF38842005C65B0 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		49F5C0191CF3A00D005C65B0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		49FE53A61CC1380D00C67ED5 /* AppFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFormViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +231,8 @@
 		49D3430F1CBDB0470010745D /* models */ = {
 			isa = PBXGroup;
 			children = (
+				49F1A7651D108EDE005F8683 /* PlaceImage.swift */,
+				49F1A7671D108EE8005F8683 /* PlaceImageWithData.swift */,
 				4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */,
 				49D343291CBF04BB0010745D /* Comment.swift */,
 				49D343101CBDB0650010745D /* User.swift */,
@@ -263,6 +271,7 @@
 		49D3431C1CBDC07C0010745D /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				49F1A7691D108F52005F8683 /* Util.swift */,
 				49D3431D1CBDC08C0010745D /* UserDefaults.swift */,
 				49D3431A1CBDBC930010745D /* Constants.swift */,
 				49254D7B1CF279B70005BEED /* PhotoThumbnailCollectionViewCell.swift */,
@@ -508,16 +517,19 @@
 				49D3432A1CBF04BB0010745D /* Comment.swift in Sources */,
 				49D343351CC024830010745D /* UITableViewControllerOwn.swift in Sources */,
 				494C80141CF1365A00409B35 /* AddPlace.swift in Sources */,
+				49F1A7661D108EDE005F8683 /* PlaceImage.swift in Sources */,
 				49D343241CBE4A630010745D /* AppManager.swift in Sources */,
 				49254D7C1CF279B70005BEED /* PhotoThumbnailCollectionViewCell.swift in Sources */,
 				4991F44E1CF1D3410045D0B7 /* Map.swift in Sources */,
 				49D343181CBDB37D0010745D /* UIViewControllerOwn.swift in Sources */,
 				49FE53A71CC1380D00C67ED5 /* AppFormViewController.swift in Sources */,
 				49D342DF1CBD7A880010745D /* Login.swift in Sources */,
+				49F1A7681D108EE8005F8683 /* PlaceImageWithData.swift in Sources */,
 				494C80121CF128E200409B35 /* PlaceManager.swift in Sources */,
 				49D343381CC04BB30010745D /* TabBar.swift in Sources */,
 				49FE53AB1CC1B27F00C67ED5 /* UserSession.swift in Sources */,
 				494C800C1CF110DC00409B35 /* Place.swift in Sources */,
+				49F1A76A1D108F52005F8683 /* Util.swift in Sources */,
 				49D342DD1CBD7A880010745D /* AppDelegate.swift in Sources */,
 				49D343331CC024110010745D /* Profile.swift in Sources */,
 				49D343221CBE47910010745D /* UIAlertOwn.swift in Sources */,

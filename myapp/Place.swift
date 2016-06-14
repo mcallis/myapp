@@ -19,6 +19,7 @@ class Place: NSObject {
     var desc: String = ""
     var location = PlaceLocation()
     var urlImage: String!
+    var images: [PlaceImage] = []
     
     
     

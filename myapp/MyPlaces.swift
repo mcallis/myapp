@@ -27,8 +27,7 @@ class MyPlaces: UITableViewControllerOwn {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureTableView()
+    
         // Get All Places
         getData()
     }
@@ -40,10 +39,6 @@ class MyPlaces: UITableViewControllerOwn {
         
     }
     
-    func configureTableView(){
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
-        self.tableView.estimatedRowHeight = 250.0;
-    }
     
     func getData(){
         // Durante todo el proceso de carga mostraremos el indicador de actividad de red en la aplicación
@@ -136,10 +131,7 @@ class MyPlaces: UITableViewControllerOwn {
     
     
     // TABLEVIEW METHODS
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
+
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listPlaces.count
