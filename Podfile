@@ -7,6 +7,7 @@ use_frameworks!
 
 target 'myapp' do
     pod 'Backendless-ios-SDK'
+    pod 'SDWebImage'
 end
 
 target 'myappTests' do

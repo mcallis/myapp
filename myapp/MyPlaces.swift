@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 
 class MyPlaces: UITableViewControllerOwn {
     
@@ -151,24 +152,45 @@ class MyPlaces: UITableViewControllerOwn {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath) as! PlaceCell
-
+        let place = listPlaces[indexPath.row]
+        
         // Configure cell...
-        setImageForCell(cell, indexPath: indexPath)
-        setTitleForCell(cell, indexPath: indexPath)
-        setDescForCell(cell, indexPath: indexPath)
+        setImageForCell(cell, place: place, indexPath: indexPath)
+        setTitleForCell(cell, place: place, indexPath: indexPath)
+        setDescForCell(cell, place: place, indexPath: indexPath)
         return cell
     }
     
     
-    func setImageForCell(cell: PlaceCell, indexPath: NSIndexPath){
-        let place = listPlaces[indexPath.row] 
-        let image = UIImage(named: "no_image")
+    func setImageForCell(cell: PlaceCell, place: Place, indexPath: NSIndexPath){
+        // Configuramos la imagen inicial de la celda, que se mostrará mientras no se carga la imagen final, o si el sitio no tiene imagen
+        cell.customImage.image = UIImage(named: "placeholder")
         
-        if place.urlImage == nil {
-            cell.customImage.image = image
-        } else {
-            downloadImage(NSURL(string: place.urlImage)!, imageView: cell.customImage)
+        // Si tenemos una imagen para el sitio iniciamos us descarga asíncrona mediende SDWebImage
+        if let firstImage = place.images.first, thumbUrl = firstImage.thumbUrl {
+            // Configuramos un indicador de actividad para que se muestre mientras se carga la imagen
+            let activityIndicator = UIActivityIndicatorView()
+            activityIndicator.center = CGPointMake(CGRectGetMidX(cell.customImage.bounds), CGRectGetMidY(cell.customImage.bounds))
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.color = UIColor.blackColor()
+            cell.customImage.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            
+            // En la imagen de la celda mostraremos la imagen reducida (thumbnail)
+            // SDWebImage amplia la funcionalidad del UIImageView, entre otras cosas permite:
+            //   - Configurar la descarga de imagenes en segundo plano a partir de una URL
+            //   - Cache de las imágenes descargadas
+            //   - Controlar la visibilidad del UIImageView para cancelar la descarga cuando ya no es visible. Esto evita el problema que
+            //     algunas celdas muestren imágenes que no les corresponden porque cuando el proceso en segundo plano termina de descargar la
+            //     imagen puede ser que la celda se hubiera reutilizado para mostrar otro de los sitios.
+            let url = NSURL(string: thumbUrl)
+            // Utilizamos SDWebImage para descargar la imagen en segundo plano directamente sobre el UIImageView de la celda
+            cell.customImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "placeholder"), completed: { (image: UIImage!, error: NSError!, cache: SDImageCacheType, url: NSURL!) in
+                // Al terminar la descarga de la imagen quitamos el indicador de actividad
+                activityIndicator.removeFromSuperview()
+            })
         }
+        
     }
     
     func downloadImage(url: NSURL, imageView: UIImageView!){
@@ -190,12 +212,12 @@ class MyPlaces: UITableViewControllerOwn {
             }.resume()
     }
     
-    func setTitleForCell(cell: PlaceCell, indexPath: NSIndexPath){
+    func setTitleForCell(cell: PlaceCell, place: Place, indexPath: NSIndexPath){
         let place = listPlaces[indexPath.row] 
         cell.name.text = place.name
     }
     
-    func setDescForCell(cell: PlaceCell, indexPath: NSIndexPath){
+    func setDescForCell(cell: PlaceCell, place: Place, indexPath: NSIndexPath){
         let place = listPlaces[indexPath.row] 
         cell.desc.text = place.desc
 
