@@ -13,7 +13,7 @@ class Place: NSObject {
     var name: String = ""
     var desc: String = ""
     var owner: BackendlessUser?
-    var location: PlaceLocation?
+    var location: GeoPoint?
     var urlImage: String!
     var images: [PlaceImage] = []
     

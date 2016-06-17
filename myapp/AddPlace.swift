@@ -23,7 +23,7 @@ enum Mode {
 }
 
 class AddPlace: UITableViewControllerOwn, UITextFieldDelegate, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, ImageManagerDelegate {
+UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, ImageManagerDelegate, EditLocationDelegate {
     
     var delegate: PlaceManagerDelegate?
     
@@ -46,8 +46,8 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
     // Reconocedor de pulsaciones para que ocultar el teclado
     var tapRecognizerKeyboard = UITapGestureRecognizer()
     
-
-    
+    // Indicador de actividad
+    private var indicador: UIActivityIndicatorView = UIActivityIndicatorView()
     
     let mPlaceManager = PlaceManager()
     var mLocation: CLLocation!
@@ -57,11 +57,10 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
     
     @IBOutlet weak var fieldName: UITextFieldOwn!
     @IBOutlet weak var fieldDescription: UITextView!
-    @IBOutlet weak var fieldLongitude: UITextField!
-    @IBOutlet weak var fieldLatitude: UITextField!
     @IBOutlet weak var btnSave: UIBarButtonItem!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imagesCollection: UICollectionView!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var btnMap: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +70,9 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
         self.navigationItem.rightBarButtonItem = btnSave
         self.navigationItem.title = Constants.TitlesViews.addPlace
         
+        // Inicializamos el TapGestureRecognizer para detectar la pulsación sobre el MapView
+        tapRecognizerMap.addTarget(self, action: #selector(AddPlace.mapViewTapped))
+        mapView.addGestureRecognizer(tapRecognizerMap)
         
         // Inicializamos el TapGestureRecognizer para detectar la pulsación sobre la vista principal
         tapRecognizerKeyboard.addTarget(self, action: #selector(AddPlace.viewTapped))
@@ -111,20 +113,14 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
         savePlace()
     }
     
+    /**
+     Gestiona el siguiente campo que debe activarse al pulsar el botón Next en el campo de texto
+     */
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        switch textField {
-        case fieldName:
+        if textField == fieldName {
             fieldDescription.becomeFirstResponder()
-            
-        case fieldDescription:
-            fieldLongitude.becomeFirstResponder()
-            
-        case fieldLongitude:
-            fieldLatitude.becomeFirstResponder()
-            
-        default:
-            textField.resignFirstResponder()
         }
+        
         return true
     }
 
@@ -132,8 +128,6 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
     func savePlace(){
         let namePlace = fieldName.text
         let descPlace = fieldDescription.text
-        let longPlace = fieldLongitude.text
-        let latPlace  = fieldLatitude.text
         
         var errors = [String]()
         
@@ -154,20 +148,6 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
             fieldDescription.backgroundColor = colorOK
         }
         
-        if longPlace == "" {
-            fieldLongitude.backgroundColor = colorError
-            errors.append(Constants.ErrorMessage.longPlaceRequired)
-        } else {
-            fieldLongitude.backgroundColor = colorOK
-        }
-        
-        if latPlace == "" {
-            fieldLatitude.backgroundColor = colorError
-            errors.append(Constants.ErrorMessage.latPlaceRequired)
-        } else {
-            fieldLatitude.backgroundColor = colorOK
-        }
-        
         
         let numErrors = errors.count
         if numErrors > 0 {
@@ -180,23 +160,7 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
         } else {
             self.currentPlace!.name = namePlace!
             self.currentPlace!.desc = descPlace!
-            //self.currentPlace!.location!.longitude = Double(longPlace!)!
-            //self.currentPlace!.location!.latitude = Double(latPlace!)!
-            /*
-             startIndicator()
-             // Get url image
-             let imageName = "image_" + place.name
-             mPlaceManager.uploadImage(mImage, imageName: imageName, response: { (file) in
-             place.urlImage = file.fileURL
-             // Save place
-             self.uploadPlace(place)
-             
-             }, _error: { (error) in
-             self.stopIndicator()
-             self.alertError(error.message)
-             })
-             */
-
+           
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             startIndicator()
             
@@ -240,21 +204,22 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
             
         }
     }
-    
-    func uploadPlace(place: Place){
-        mPlaceManager.save(
-            place,
-            response: { (result) in
-                self.stopIndicator()
-                self.performSegueWithIdentifier(Constants.Segues.returnMyPlacesFromAddPlace, sender: self)
-            },
-            _error: { (error) in
-                self.stopIndicator()
-                self.alertError(error.message)
-        })
 
+    
+    
+    
+    /**
+     Se lanzará cuando el usuario pulse fuera de los campos de texto o botones de la vista.
+     Finaliza la edición en curso y oculta el teclado
+     */
+    func viewTapped() {
+        self.view.endEditing(true)
     }
     
+    
+    
+
+   
     @IBAction func takePhoto(sender: AnyObject) {
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
@@ -268,6 +233,10 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
         imagePicker.sourceType = .PhotoLibrary
         presentViewController(imagePicker, animated: true, completion: nil)
     }
+    
+    
+    
+    
     
     /**
      Se lanza cuando se ha obtenido una imagen, ya sea desde la galeria o capturada con la cámara
@@ -284,27 +253,13 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     
-    /*
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        self.imageView.image = chosenImage
-        self.mImage = chosenImage
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }*/
     
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func returnFromAddLocation(segue: UIStoryboardSegue) {
-        mLocation = AppManager.sharedInstance.getPlaceLocation()
-        if mLocation != nil {
-            fieldLatitude.text = "\(mLocation.coordinate.latitude)"
-            fieldLongitude.text = "\(mLocation.coordinate.longitude)"
-        }
 
-    }
     
     func alertError(message: String){
         let alertController = UIAlertOwn(title: "Error", message: message, preferredStyle: .Alert)
@@ -313,15 +268,7 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    /**
-     Se lanzará cuando el usuario pulse fuera de los campos de texto o botones de la vista.
-     Finaliza la edición en curso y oculta el teclado
-     */
-    func viewTapped() {
-        self.view.endEditing(true)
-    }
 
-    
     
     /**
      Lanzada por la colección de imágenes cuando necesita saber cuántas debe mostar
@@ -375,6 +322,47 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
         self.performSegueWithIdentifier("segueToImageDetail", sender: cell)
     }
     
+    
+    // MARK: - Mapview
+    
+    /**
+     Se lanzará cuando el usuario pulse en el mapa de localización del sitio.
+     */
+    func mapViewTapped() {
+        performSegueWithIdentifier("segueToEditLocation", sender: self)
+    }
+
+    
+    
+    /**
+     Si tenemos una posición para el sitio se configura un mapa con un pin centrado en su posición.
+     Pero si no tenemos posición ocultaremos el mapa y mostraremos un botón para escoger la ubicación en una pantalla dedicada a ello.
+     */
+    func setupMapView() {
+        if let place = currentPlace, placeLocation = place.location {
+            mapView.hidden = false
+            btnMap.hidden = true
+            // Mostraremos un pin con la posición del sitio
+            let coordinate = CLLocationCoordinate2D(latitude: placeLocation.latitude as CLLocationDegrees, longitude: placeLocation.longitude as CLLocationDegrees)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            mapView.removeAnnotations(mapView.annotations)
+            mapView.addAnnotation(annotation)
+            
+            // Y centraremos el mapa
+            let span = MKCoordinateSpanMake(0.01, 0.01)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            mapView.setRegion(region, animated: true)
+        } else {
+            mapView.hidden = true
+            btnMap.hidden = false
+        }
+    }
+
+    
+    
+    
     // MARK: - Navigation
     
     /**
@@ -389,15 +377,14 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
                 imageDetailController.imageIndex = indexPath.row
             }
         } else if segue.identifier == "segueToEditLocation" {
-            /*
-            if let editLocationController = segue.destinationViewController as? EditLocationViewController {
+            if let editLocationController = segue.destinationViewController as? Map {
                 editLocationController.delegate = self
-                if let placeLocation = place!.location {
+                if let placeLocation = currentPlace!.location {
                     let location = CLLocation(latitude: placeLocation.latitude as CLLocationDegrees, longitude: placeLocation.longitude as CLLocationDegrees)
                     editLocationController.placeLocation = location
                 }
             }
- */
+
         }
     }
 
@@ -416,6 +403,19 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
         
         imagesCollection.reloadData()
     }
+    
+    
+    // MARK: - EditLocationDelegate
+    
+    /**
+     Única función del protocolo ImageManagerDelegate.
+     Permite establecer una nueva ubicación para el sitio
+     */
+    func newLocation(location: CLLocation) {
+        currentPlace!.location = GeoPoint.geoPoint(GEO_POINT(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)) as? GeoPoint
+        setupMapView()
+    }
+
 
     
 

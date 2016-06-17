@@ -9,7 +9,7 @@
         <!--Login-->
         <scene sceneID="yFI-23-ZAj">
             <objects>
-                <tableViewController id="vkp-GL-eSd" customClass="Login" customModule="myapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LoginViewController" id="vkp-GL-eSd" customClass="Login" customModule="myapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kAb-6d-OgV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -640,15 +640,15 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
         <scene sceneID="ujn-CU-dz6">
             <objects>
                 <tableViewController storyboardIdentifier="AddPlaceViewController" id="ABA-Ne-Mfk" customClass="AddPlace" customModule="myapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="2hG-t6-3H2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2hG-t6-3H2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="Place details" id="xcZ-2w-7lr">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="76" id="TU6-wB-FkT">
-                                        <rect key="frame" x="0.0" y="114" width="320" height="76"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TU6-wB-FkT" id="xXH-Ts-ai8">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
@@ -673,7 +673,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="168" id="gCn-it-lBY">
-                                        <rect key="frame" x="0.0" y="190" width="320" height="168"/>
+                                        <rect key="frame" x="0.0" y="168" width="320" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gCn-it-lBY" id="eXa-CK-mj9">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="168"/>
@@ -696,53 +696,37 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="LOCATION" id="zS0-Az-Lvc">
+                            <tableViewSection headerTitle="Location" id="zS0-Az-Lvc">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="135" id="Ahv-9q-aYN">
-                                        <rect key="frame" x="0.0" y="409" width="320" height="135"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="135" id="UVW-MA-fwC">
+                                        <rect key="frame" x="0.0" y="364" width="320" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ahv-9q-aYN" id="nQH-Qb-hNq">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UVW-MA-fwC" id="bxS-qO-ciW">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uY-xE-sf5">
-                                                    <rect key="frame" x="8" y="50" width="68" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMt-3g-y2i">
-                                                    <rect key="frame" x="8" y="89" width="63" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ao-Vq-nAA">
-                                                    <rect key="frame" x="8" y="8" width="304" height="30"/>
-                                                    <state key="normal" title="Add location from map"/>
-                                                    <connections>
-                                                        <segue destination="7GV-Y4-tF9" kind="push" id="sha-tf-RAN"/>
-                                                    </connections>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHD-vs-7Xr">
+                                                    <rect key="frame" x="0.0" y="4" width="320" height="128"/>
+                                                    <state key="normal" title="Tap to add location"/>
                                                 </button>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CT0-fn-xKp">
-                                                    <rect key="frame" x="84" y="46" width="228" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="psZ-XT-nzg">
-                                                    <rect key="frame" x="84" y="84" width="228" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                </textField>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lym-RL-EPK">
+                                                    <rect key="frame" x="0.0" y="4" width="320" height="128"/>
+                                                </mapView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lym-RL-EPK" firstAttribute="leading" secondItem="bxS-qO-ciW" secondAttribute="leadingMargin" constant="-8" id="1G0-nL-AZj"/>
+                                                <constraint firstItem="Lym-RL-EPK" firstAttribute="top" secondItem="bxS-qO-ciW" secondAttribute="topMargin" constant="-4" id="UUR-X1-dhh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Lym-RL-EPK" secondAttribute="trailing" constant="-8" id="gc0-OG-0zS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Lym-RL-EPK" secondAttribute="bottom" constant="-5" id="oX0-e0-n71"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="IMAGES" id="Gbn-zJ-Lbi">
+                            <tableViewSection headerTitle="Images" id="Gbn-zJ-Lbi">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="Imn-kb-wcd">
-                                        <rect key="frame" x="0.0" y="595" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="527" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Imn-kb-wcd" id="gUu-o5-eM1">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
@@ -773,7 +757,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="178" id="JCO-gv-gNM">
-                                        <rect key="frame" x="0.0" y="645" width="320" height="178"/>
+                                        <rect key="frame" x="0.0" y="577" width="320" height="178"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JCO-gv-gNM" id="Hdf-Se-PXi">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
@@ -836,14 +820,15 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnMap" destination="pHD-vs-7Xr" id="h01-NX-pdH"/>
                         <outlet property="btnSave" destination="8cw-Ei-RIe" id="q8I-M3-OdQ"/>
                         <outlet property="fieldDescription" destination="GM6-A1-LoB" id="Rk0-f3-opz"/>
-                        <outlet property="fieldLatitude" destination="psZ-XT-nzg" id="gYU-HU-CNN"/>
-                        <outlet property="fieldLongitude" destination="CT0-fn-xKp" id="pa5-nR-9KB"/>
                         <outlet property="fieldName" destination="1e6-h5-f2n" id="saT-Q1-0h1"/>
                         <outlet property="imagesCollection" destination="n64-B2-4rQ" id="Gqx-pV-Hxs"/>
+                        <outlet property="mapView" destination="Lym-RL-EPK" id="kot-72-wOn"/>
                         <segue destination="UGb-uD-hYN" kind="unwind" identifier="returnMyPlacesFromAddPlace" unwindAction="returnFromAddPlace:" id="09p-6u-Cud"/>
                         <segue destination="Ytn-2a-Nzw" kind="push" identifier="segueToImageDetail" id="nYR-EK-ryN"/>
+                        <segue destination="7GV-Y4-tF9" kind="push" identifier="segueToEditLocation" id="7j3-xr-ip1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Urf-im-HuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -902,7 +887,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3509.5" y="-1185.5"/>
+            <point key="canvasLocation" x="3205.5" y="-1031.5"/>
         </scene>
         <!--Map-->
         <scene sceneID="gWI-1l-1S1">

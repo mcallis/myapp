@@ -29,20 +29,39 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Configuramos el controll "Pull to refresh"
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl?.addTarget(self, action: #selector(MyPlaces.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        // Configuramos el delegado y el dataSource de la table view
+        tableView.delegate = self
+        tableView.dataSource = self
     
         // Get All Places
-        getData()
+        loadPlaces()
     }
 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.tabBarController?.tabBar.hidden = false
+        
+        self.refreshControl?.beginRefreshing()
+        self.refreshControl?.endRefreshing()
         
     }
     
+    // MARK: - Refresh control
+    func refresh(sender: AnyObject) {
+        loadPlaces()
+    }
+
     
-    func getData(){
+    
+    func loadPlaces(){
         // Durante todo el proceso de carga mostraremos el indicador de actividad de red en la aplicación
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
@@ -70,16 +89,23 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
                 }
             },
             error: { (fault : Fault!) -> () in
-                if queryNumber == self.currentQueryNumber {
-                    let alertController = UIAlertController(title: "Error", message: "An error has ocurred while fetching your places", preferredStyle: .Alert)
-                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-                    alertController.addAction(OKAction)
-                    self.presentViewController(alertController, animated: true, completion: nil)
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                if queryNumber == self.currentQueryNumber && self.listPlaces.count > 0 {
+                    if self.listPlaces.count > 0{
+                        let alertController = UIAlertController(title: "Error", message: "An error has ocurred while fetching your places", preferredStyle: .Alert)
+                        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                        alertController.addAction(OKAction)
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                    }
+    
                 }
             }
         )
 
     }
+    
+    
+    
     
     /**
      Obtiene las siguientes páginas.
@@ -141,14 +167,6 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        /*
-        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
-        let currentPlace: Place = listPlaces[indexPath.row] 
-        detailVC.currentPlace = currentPlace
- 
-                
-        self.navigationController?.pushViewController(editPlaceVC, animated: true)*/
-        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         performSegueWithIdentifier("segueToEditPlace", sender: indexPath)
     }
@@ -171,15 +189,17 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath) as! PlaceCell
         let place = listPlaces[indexPath.row]
         
-        // Configure cell...
-        setImageForCell(cell, place: place, indexPath: indexPath)
-        setTitleForCell(cell, place: place, indexPath: indexPath)
-        setDescForCell(cell, place: place, indexPath: indexPath)
-        return cell
-    }
-    
-    
-    func setImageForCell(cell: PlaceCell, place: Place, indexPath: NSIndexPath){
+        // Configuramos los textos de las celdas
+        if !place.name.isEmpty {
+            cell.name.text = place.name
+        }
+      
+        if !place.desc.isEmpty {
+            // De la descripción solamente mostraremos los 100 primero caracteres
+            let reducedDescripcion = place.desc.substringToIndex(place.desc.startIndex.advancedBy(100, limit: place.desc.endIndex))
+            cell.desc.text = reducedDescripcion
+        }
+        
         // Configuramos la imagen inicial de la celda, que se mostrará mientras no se carga la imagen final, o si el sitio no tiene imagen
         cell.customImage.image = UIImage(named: "placeholder")
         
@@ -208,8 +228,76 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
             })
         }
         
+
+        return cell
     }
     
+    /**
+     Lanzado por el table view para que le indiquemos si una celda es editables.
+     En nuestro caso todas las celdas serán editables (para eliminar)
+     */
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    /**
+     Lanzado por el table view para iniciar la operación de edición, en nuestro caso para eliminar sitios.
+     */
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            deletePlace(listPlaces[indexPath.row])
+            listPlaces.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+
+    
+    /**
+     Elimina un sitio en Backendless
+     */
+    func deletePlace(place: Place) {
+        // Eliminamos primero las imágenes y sus ficheros
+        let dataStoreImages = backendless.data.of(PlaceImage.ofClass())
+        
+        Types.tryblock({
+            for placeImage in place.images {
+                if let fileUrl = placeImage.url {
+                    self.deleteImageFile(fileUrl)
+                }
+                if let fileThumbUrl = placeImage.thumbUrl {
+                    self.deleteImageFile(fileThumbUrl)
+                }
+                dataStoreImages.removeID(placeImage.objectId)
+            }
+            
+            // Y finalmente el propio sitio
+            let dataStore = self.backendless.data.of(Place.ofClass())
+            
+            dataStore.remove(place, response: { (i: NSNumber!) in
+                print("Place deleted")
+                }, error: { (fault: Fault!) in
+                    print("Error: \(fault.description)")
+            })
+            }, catchblock: { (exception)->Void in
+                let alertController = UIAlertController(title: "Error", message: "There was an error deleting your place", preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                alertController.addAction(OKAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+        })
+    }
+
+    
+    /**
+     Elimina una fichero de imagen de Backendless
+     */
+    func deleteImageFile(fileUrl: String) {
+        let filePath = Util.getImagePathFromFileURL(fileUrl)
+        self.backendless.fileService.remove(filePath)
+    }
+
+
+    /*
     func downloadImage(url: NSURL, imageView: UIImageView!){
         print("Download Started")
         print("lastPathComponent: " + (url.lastPathComponent ?? ""))
@@ -228,20 +316,11 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
             completion(data: data, response: response, error: error)
             }.resume()
     }
-    
-    func setTitleForCell(cell: PlaceCell, place: Place, indexPath: NSIndexPath){
-        let place = listPlaces[indexPath.row] 
-        cell.name.text = place.name
-    }
-    
-    func setDescForCell(cell: PlaceCell, place: Place, indexPath: NSIndexPath){
-        let place = listPlaces[indexPath.row] 
-        cell.desc.text = place.desc
+    */
 
-    }
     
     @IBAction func returnFromAddPlace(segue: UIStoryboardSegue) {
-        getData();
+        loadPlaces();
     }
     
     func alertError(message: String){

@@ -28,17 +28,6 @@ class DetailViewController: UITableViewController {
         newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
         fieldDescription.frame = newFrame;
 
-        /*
-        // get data
-        mPlaceManager.findOne(
-            currentPlace.objectId,
-            response: { (result) in
-                self.currentPlace = result
-                self.fillFields()
-            }) { (error) in
-                self.alertError(error.description)
-        }
-    */
     }
     
     func fillFields(){
@@ -51,8 +40,8 @@ class DetailViewController: UITableViewController {
     func loadMap() {
         let longitude = currentPlace.location!.longitude
         let latitude = currentPlace.location!.latitude
-        let location = CLLocation(latitude: latitude, longitude: longitude)
-        centerMapOnLocation(location)
+        //let location = CLLocation(latitude: latitude, longitude: longitude)
+        //centerMapOnLocation(location)
     }
     
     func centerMapOnLocation(location: CLLocation) {
