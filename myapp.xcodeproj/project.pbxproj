@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		49254D7C1CF279B70005BEED /* PhotoThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49254D7B1CF279B70005BEED /* PhotoThumbnailCollectionViewCell.swift */; };
+		493BD4B41D12102A00C3CBE3 /* PlaceImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493BD4B31D12102A00C3CBE3 /* PlaceImageCell.swift */; };
 		494C800C1CF110DC00409B35 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C800B1CF110DC00409B35 /* Place.swift */; };
 		494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C800E1CF111C300409B35 /* MyPlaces.swift */; };
 		494C80121CF128E200409B35 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80111CF128E200409B35 /* PlaceManager.swift */; };
 		494C80141CF1365A00409B35 /* AddPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80131CF1365A00409B35 /* AddPlace.swift */; };
+		4951772F1D135F9100D18B5A /* ImageDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951772E1D135F9100D18B5A /* ImageDetailController.swift */; };
 		4991F44C1CF1BB330045D0B7 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */; };
 		4991F44E1CF1D3410045D0B7 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44D1CF1D3410045D0B7 /* Map.swift */; };
 		4991F4501CF1EAB90045D0B7 /* PlaceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */; };
@@ -67,10 +69,12 @@
 
 /* Begin PBXFileReference section */
 		49254D7B1CF279B70005BEED /* PhotoThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
+		493BD4B31D12102A00C3CBE3 /* PlaceImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceImageCell.swift; sourceTree = "<group>"; };
 		494C800B1CF110DC00409B35 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		494C800E1CF111C300409B35 /* MyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaces.swift; sourceTree = "<group>"; };
 		494C80111CF128E200409B35 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 		494C80131CF1365A00409B35 /* AddPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlace.swift; sourceTree = "<group>"; };
+		4951772E1D135F9100D18B5A /* ImageDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDetailController.swift; path = "../../../../Practica2-Solucion/MyPlaces/MyPlaces/ImageDetailController.swift"; sourceTree = "<group>"; };
 		4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		4991F44D1CF1D3410045D0B7 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceLocation.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				494C80131CF1365A00409B35 /* AddPlace.swift */,
 				4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */,
 				49F5C0191CF3A00D005C65B0 /* DetailViewController.swift */,
+				4951772E1D135F9100D18B5A /* ImageDetailController.swift */,
 			);
 			name = myplaces;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				49D343101CBDB0650010745D /* User.swift */,
 				494C800B1CF110DC00409B35 /* Place.swift */,
 				49F5C0171CF38842005C65B0 /* Image.swift */,
+				493BD4B31D12102A00C3CBE3 /* PlaceImageCell.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -508,7 +514,9 @@
 				49D343201CBDC6C50010745D /* ConnectionApi.swift in Sources */,
 				4991F44C1CF1BB330045D0B7 /* PlaceCell.swift in Sources */,
 				494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */,
+				493BD4B41D12102A00C3CBE3 /* PlaceImageCell.swift in Sources */,
 				49D343131CBDB1FA0010745D /* UITextFieldOwn.swift in Sources */,
+				4951772F1D135F9100D18B5A /* ImageDetailController.swift in Sources */,
 				49F5C0181CF38842005C65B0 /* Image.swift in Sources */,
 				49D3432C1CBF14D90010745D /* LaunchScreen.swift in Sources */,
 				49D343111CBDB0650010745D /* User.swift in Sources */,

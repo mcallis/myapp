@@ -20,7 +20,7 @@ class PlaceManager {
             object: newPlace,
             response: { (result) in
                 let obj = result as! Place
-                print("Place has been saved: \(obj.objectId)")
+                print("Place has been saved: \(obj.name)")
                 response(result: obj)
             }) { (fault) in
                 print("Server reported an error: \(fault)")
@@ -35,7 +35,7 @@ class PlaceManager {
             object: place,
             response: { (result) in
                 let updatedPlace = result as! Place
-                print("Place has been updated: \(updatedPlace.objectId)")
+                print("Place has been updated: \(updatedPlace.name)")
                 response(result: updatedPlace)
             }) { (fault) in
                 _error(error: fault)
@@ -79,7 +79,7 @@ class PlaceManager {
             objectID: objectID,
             response: { (result) in
                 let obj = result as! Place
-                print("Contact has been found: \(obj.objectId)")
+                print("Place has been found: \(obj.name)")
                 response(result: obj)
             }) { (fault) in
                 _error(error: fault)

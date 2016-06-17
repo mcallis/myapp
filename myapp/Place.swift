@@ -10,14 +10,10 @@ import Foundation
 
 class Place: NSObject {
     
-    var objectId: String?
-    var created: NSDate?
-    var updated: NSDate?
-    var counter: Int = 0
-    var isPublished: Bool = true
     var name: String = ""
     var desc: String = ""
-    var location = PlaceLocation()
+    var owner: BackendlessUser?
+    var location: PlaceLocation?
     var urlImage: String!
     var images: [PlaceImage] = []
     

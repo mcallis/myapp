@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import ImageIO
 import SDWebImage
 
-class MyPlaces: UITableViewControllerOwn {
+class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
     
     let mAppManager = AppManager.sharedInstance
     let mPlaceManager = PlaceManager()
@@ -140,14 +141,30 @@ class MyPlaces: UITableViewControllerOwn {
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        /*
         let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         let currentPlace: Place = listPlaces[indexPath.row] 
         detailVC.currentPlace = currentPlace
+ 
                 
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        self.navigationController?.pushViewController(editPlaceVC, animated: true)*/
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegueWithIdentifier("segueToEditPlace", sender: indexPath)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToCreatePlace" {
+            let destinationVC = segue.destinationViewController as! AddPlace
+            
+            destinationVC.delegate = self
+        } else if (segue.identifier == "segueToEditPlace") {
+            let controller = segue.destinationViewController as! AddPlace
+            controller.delegate = self
+            let indexPath = sender as! NSIndexPath
+            controller.currentPlace = listPlaces[indexPath.row]
+        }
+
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -224,7 +241,7 @@ class MyPlaces: UITableViewControllerOwn {
     }
     
     @IBAction func returnFromAddPlace(segue: UIStoryboardSegue) {
-       
+        getData();
     }
     
     func alertError(message: String){
@@ -233,4 +250,135 @@ class MyPlaces: UITableViewControllerOwn {
         alertController.addAction(OKAction)
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    
+    /**
+     Función del protocolo PlaceManagerDelegate para crear un sitio
+     */
+    func createPlace(place: Place, placeImages: [PlaceImageWithData]) -> Bool {
+        return createPlaceBackend(place, placeImages: placeImages)
+    }
+    
+    /**
+     Crea un sitio en backendless
+     */
+    func createPlaceBackend(place: Place, placeImages: [PlaceImageWithData]) -> Bool {
+        var result = false
+        
+        let backendless = Backendless.sharedInstance()
+        
+        place.owner = backendless.userService.currentUser
+        
+        Types.tryblock({
+            // Al tratarse de un sitio nuevo subiremos todas las imágenes
+            for image in placeImages {
+                let url = self.uploadImage(image.uiImage!)
+                let thumbUrl = self.uploadImageThumbnail(image.uiImage!)
+                
+                let newImage = PlaceImage()
+                newImage.url = url
+                newImage.thumbUrl = thumbUrl
+                
+                place.images.append(newImage)
+            }
+            
+            let dataStore = backendless.data.of(Place.ofClass())
+            
+            dataStore.save(place)
+            
+            result = true
+            }, catchblock: { (exception)->Void in
+                result = false
+        })
+        
+        return result
+    }
+    
+    /**
+     Sube una imagen a Backendless y devuelve la url donde está publicada
+     */
+    func uploadImage(image: UIImage) -> String {
+        let uId = NSUUID().UUIDString
+        
+        let path = "places/\(uId).jpg"
+        return uploadImageFile(path, image: image)
+    }
+    
+    /**
+     Sube una imagen thumbnail a Backendless y devuelve la url donde está publicada
+     */
+    func uploadImageThumbnail(image: UIImage) -> String {
+        let uId = NSUUID().UUIDString
+        
+        let path = "places/\(uId).thumb.jpg"
+        let thumbImage = Util.createThumbnail(image)
+        
+        return uploadImageFile(path, image: thumbImage)
+    }
+    
+    /**
+     Sube un fichero de imagen a Backendless y devuelve la url donde está publicado
+     */
+    func uploadImageFile(path: String, image: UIImage) -> String {
+        let data = UIImageJPEGRepresentation(image, 0.5)
+        let file = self.backendless.fileService.upload(path, content: data)
+        print("Uploaded image: \(file.fileURL)")
+        return file.fileURL
+    }
+    
+    /**
+     Función del protocolo PlaceManagerDelegate para actualizar un sitio
+     */
+    func updatePlace(place: Place, placeImages: [PlaceImageWithData], deletedImages: [PlaceImageWithData]) -> Bool {
+        return updatePlaceBackend(place, placeImages: placeImages, deletedImages: deletedImages)
+    }
+    
+    /**
+     Actualiza un sitio en el backend
+     */
+    func updatePlaceBackend(place: Place, placeImages: [PlaceImageWithData], deletedImages: [PlaceImageWithData]) -> Bool {
+        var result = false
+        
+        let backendless = Backendless.sharedInstance()
+        
+        let dataStore = backendless.data.of(Place.ofClass())
+        Types.tryblock({
+            var remainingImages: [PlaceImage] = []
+            
+            for image in place.images {
+                let r = deletedImages.filter({$0.image!.url == image.url})
+                if r.count == 0 {
+                    remainingImages.append(image)
+                }
+            }
+            
+            place.images = remainingImages
+            
+            // En un sitio actualizado las imágenes nuevas no tendran inicializado el objeto image
+            for image in placeImages {
+                if image.image == nil {
+                    
+                    // Subimos la imagen completa y el thumbnail
+                    let url = self.uploadImage(image.uiImage!)
+                    let thumbUrl = self.uploadImageThumbnail(image.uiImage!)
+                    
+                    let newImage = PlaceImage()
+                    newImage.url = url
+                    newImage.thumbUrl = thumbUrl
+                    place.images.append(newImage)
+                }
+            }
+            
+            dataStore.save(place)
+            
+            result = true
+            }, catchblock: { (exception)->Void in
+                result = false
+        })
+        
+        return result
+    }
+
+
+
 }
