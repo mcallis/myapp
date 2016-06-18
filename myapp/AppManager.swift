@@ -17,6 +17,7 @@ class AppManager {
     var currentUser: User!
     var autoLoggedIn: Bool!
     var placeLocation: CLLocation!
+    
 
     init(){}
     
@@ -62,6 +63,7 @@ class AppManager {
         }
         return UserSession.exist()
     }
+    
 
     func autoLoggedIn(enabled: Bool){
         self.autoLoggedIn = enabled

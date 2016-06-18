@@ -95,6 +95,10 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
             mode = .Create
         }
         
+        // Configuramos el MapView
+        setupMapView()
+
+        
         // Configuramos el delegado y el data source de la colección de imágenes
         imagesCollection.delegate = self
         imagesCollection.dataSource = self
@@ -320,6 +324,11 @@ UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         self.performSegueWithIdentifier("segueToImageDetail", sender: cell)
+    }
+    
+    
+    @IBAction func actionEditLocation(sender: AnyObject) {
+        performSegueWithIdentifier("segueToEditLocation", sender: self)
     }
     
     

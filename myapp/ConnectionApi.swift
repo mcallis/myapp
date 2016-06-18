@@ -21,6 +21,7 @@ class ConnectionApi {
     init(){
         self.backendless = Backendless.sharedInstance()
         self.backendless.initApp(ConnectionApi.APP_ID, secret:ConnectionApi.SECRET_KEY, version:ConnectionApi.VERSION_NUM)
+        backendless.userService.setStayLoggedIn( true )
     }
     
     // USER REGISTRATION

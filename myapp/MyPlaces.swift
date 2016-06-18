@@ -71,11 +71,19 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
         let startTime = NSDate()
         let offset = 0
         
+        
+        //let currentUser = backendless.userService.currentUser
+        
         // Consultaremos los stios junto con sus relaciones images y location
         let query = BackendlessDataQuery()
         query.queryOptions.pageSize = PAGESIZE
         //query.whereClause = "owner.objectId = '\(currentUser.objectId)'"
-        query.queryOptions.related = ["images", "location"]
+      
+        //query.queryOptions.sortBy = ["updated DESC"]
+        
+        //query.whereClause = "updated >= ''";
+        //query.queryOptions.relationsDepth = 1
+        query.queryOptions.related = ["images", "location", "owner"]
         
         backendless.data.of(Place.ofClass()).find(
             query,
@@ -168,7 +176,18 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        performSegueWithIdentifier("segueToEditPlace", sender: indexPath)
+        //performSegueWithIdentifier("segueToEditPlace", sender: indexPath)
+        let currentUser: BackendlessUser? = backendless.userService.currentUser
+        let currentPlace: Place? = self.listPlaces[indexPath.row]
+        
+        if let owner = currentPlace?.owner {
+            if owner.objectId == currentUser!.objectId {
+                performSegueWithIdentifier("segueToEditPlace", sender: indexPath)
+            } else {
+                performSegueWithIdentifier("segueToDetailPlace", sender: indexPath)
+            }
+
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -179,6 +198,10 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
         } else if (segue.identifier == "segueToEditPlace") {
             let controller = segue.destinationViewController as! AddPlace
             controller.delegate = self
+            let indexPath = sender as! NSIndexPath
+            controller.currentPlace = listPlaces[indexPath.row]
+        } else if (segue.identifier == "segueToDetailPlace"){
+            let controller = segue.destinationViewController as! DetailViewController
             let indexPath = sender as! NSIndexPath
             controller.currentPlace = listPlaces[indexPath.row]
         }

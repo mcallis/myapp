@@ -15,23 +15,32 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
     @IBOutlet weak var btnLogin: UIButtonOwn!
     @IBOutlet weak var btnSignup: UIButtonOwn!
 
-    
+    let backendless = Backendless.sharedInstance()
     let mAppManager = AppManager.sharedInstance
     var fromLogOut = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backendless.userService.isValidUserToken(
+            { ( result : AnyObject!) -> () in
+                print("isValidUserToken (ASYNC): \(result.boolValue)")
+                // toMainApp
+                self.mAppManager.autoLoggedIn = true
+                self.toMainApp()
+            },
+            error: { ( fault : Fault!) -> () in
+                print("Server reported an error (ASYNC): \(fault)")
+            }
+        )
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        let loggedIn = mAppManager.existUserSession()
-        if loggedIn{
-            // toMainApp
-            mAppManager.autoLoggedIn = true
-            toMainApp()
-        }
+        //let loggedIn = mAppManager.existUserSession()
+        
+        
 
     }
 

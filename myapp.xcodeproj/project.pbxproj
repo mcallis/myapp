@@ -13,7 +13,7 @@
 		494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C800E1CF111C300409B35 /* MyPlaces.swift */; };
 		494C80121CF128E200409B35 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80111CF128E200409B35 /* PlaceManager.swift */; };
 		494C80141CF1365A00409B35 /* AddPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80131CF1365A00409B35 /* AddPlace.swift */; };
-		4951772F1D135F9100D18B5A /* ImageDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951772E1D135F9100D18B5A /* ImageDetailController.swift */; };
+		498AE2FE1D156A3A00C4EC46 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498AE2FD1D156A3A00C4EC46 /* ImageDetailViewController.swift */; };
 		4991F44C1CF1BB330045D0B7 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */; };
 		4991F44E1CF1D3410045D0B7 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44D1CF1D3410045D0B7 /* Map.swift */; };
 		4991F4501CF1EAB90045D0B7 /* PlaceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */; };
@@ -74,7 +74,7 @@
 		494C800E1CF111C300409B35 /* MyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaces.swift; sourceTree = "<group>"; };
 		494C80111CF128E200409B35 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 		494C80131CF1365A00409B35 /* AddPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlace.swift; sourceTree = "<group>"; };
-		4951772E1D135F9100D18B5A /* ImageDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDetailController.swift; path = "../../../../Practica2-Solucion/MyPlaces/MyPlaces/ImageDetailController.swift"; sourceTree = "<group>"; };
+		498AE2FD1D156A3A00C4EC46 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		4991F44D1CF1D3410045D0B7 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceLocation.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 				494C80131CF1365A00409B35 /* AddPlace.swift */,
 				4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */,
 				49F5C0191CF3A00D005C65B0 /* DetailViewController.swift */,
-				4951772E1D135F9100D18B5A /* ImageDetailController.swift */,
+				498AE2FD1D156A3A00C4EC46 /* ImageDetailViewController.swift */,
 			);
 			name = myplaces;
 			sourceTree = "<group>";
@@ -516,11 +516,11 @@
 				494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */,
 				493BD4B41D12102A00C3CBE3 /* PlaceImageCell.swift in Sources */,
 				49D343131CBDB1FA0010745D /* UITextFieldOwn.swift in Sources */,
-				4951772F1D135F9100D18B5A /* ImageDetailController.swift in Sources */,
 				49F5C0181CF38842005C65B0 /* Image.swift in Sources */,
 				49D3432C1CBF14D90010745D /* LaunchScreen.swift in Sources */,
 				49D343111CBDB0650010745D /* User.swift in Sources */,
 				49D3432A1CBF04BB0010745D /* Comment.swift in Sources */,
+				498AE2FE1D156A3A00C4EC46 /* ImageDetailViewController.swift in Sources */,
 				49D343351CC024830010745D /* UITableViewControllerOwn.swift in Sources */,
 				494C80141CF1365A00409B35 /* AddPlace.swift in Sources */,
 				49F1A7661D108EDE005F8683 /* PlaceImage.swift in Sources */,
