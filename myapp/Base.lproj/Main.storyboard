@@ -632,15 +632,15 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="187" id="t73-z7-cIe">
-                                        <rect key="frame" x="0.0" y="214" width="320" height="187"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="249" id="t73-z7-cIe">
+                                        <rect key="frame" x="0.0" y="214" width="320" height="249"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t73-z7-cIe" id="kCl-dE-YLv">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pu4-PZ-AFl">
-                                                    <rect key="frame" x="8" y="43" width="304" height="108"/>
+                                                    <rect key="frame" x="8" y="49" width="304" height="84"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -652,27 +652,61 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5O-rk-nq7">
+                                                    <rect key="frame" x="110" y="214" width="76" height="30"/>
+                                                    <state key="normal" title="Add review"/>
+                                                    <connections>
+                                                        <action selector="actionAddReview:" destination="Ifz-CF-tJ4" eventType="touchUpInside" id="4gp-PJ-jLp"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iI-M6-SZk">
+                                                    <rect key="frame" x="8" y="32" width="304" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YOZ-ru-h8R" customClass="FloatRatingView" customModule="myapp" customModuleProvider="target">
+                                                    <rect key="frame" x="94" y="156" width="109" height="32"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmx-0y-HyZ">
+                                                    <rect key="frame" x="130" y="189" width="36" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="YOZ-ru-h8R" firstAttribute="centerX" secondItem="Jmx-0y-HyZ" secondAttribute="centerX" id="0Ny-9s-8pR"/>
+                                                <constraint firstItem="Z5O-rk-nq7" firstAttribute="top" secondItem="Jmx-0y-HyZ" secondAttribute="bottom" constant="8" id="0tC-l3-pa1"/>
+                                                <constraint firstItem="YOZ-ru-h8R" firstAttribute="leading" secondItem="kCl-dE-YLv" secondAttribute="leadingMargin" constant="86" id="3Xx-Hb-uJe"/>
+                                                <constraint firstItem="Pu4-PZ-AFl" firstAttribute="top" secondItem="5iI-M6-SZk" secondAttribute="bottom" constant="2" id="3hQ-tb-JVf"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="5iI-M6-SZk" secondAttribute="leading" id="3rE-eH-5Oe"/>
+                                                <constraint firstItem="YOZ-ru-h8R" firstAttribute="top" secondItem="Pu4-PZ-AFl" secondAttribute="bottom" constant="23" id="6Y3-mo-j9T"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Pu4-PZ-AFl" secondAttribute="trailing" id="Atl-bK-3Z7"/>
-                                                <constraint firstItem="Pu4-PZ-AFl" firstAttribute="top" secondItem="1Hm-0k-PVu" secondAttribute="bottom" constant="8" id="Iq8-zi-a50"/>
+                                                <constraint firstItem="Jmx-0y-HyZ" firstAttribute="top" secondItem="YOZ-ru-h8R" secondAttribute="bottom" constant="1" id="HZv-KP-ePb"/>
+                                                <constraint firstItem="YOZ-ru-h8R" firstAttribute="centerX" secondItem="Z5O-rk-nq7" secondAttribute="centerX" id="OCG-C8-7uG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5iI-M6-SZk" secondAttribute="trailing" id="RJs-eM-JnO"/>
+                                                <constraint firstAttribute="trailing" secondItem="YOZ-ru-h8R" secondAttribute="trailing" constant="117" id="Rjz-Ue-3LC"/>
+                                                <constraint firstItem="YOZ-ru-h8R" firstAttribute="top" secondItem="kCl-dE-YLv" secondAttribute="top" constant="156" id="XtZ-oO-j0m"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="Pu4-PZ-AFl" secondAttribute="leading" id="cSg-H2-nw0"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Pu4-PZ-AFl" secondAttribute="bottom" constant="28" id="kNc-s7-qWD"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Z5O-rk-nq7" secondAttribute="bottom" constant="-3" id="lrl-iE-dC7"/>
                                                 <constraint firstItem="1Hm-0k-PVu" firstAttribute="top" secondItem="kCl-dE-YLv" secondAttribute="topMargin" constant="3" id="nj6-3V-odq"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="1Hm-0k-PVu" secondAttribute="leading" id="pMl-0d-CfA"/>
+                                                <constraint firstItem="5iI-M6-SZk" firstAttribute="top" secondItem="1Hm-0k-PVu" secondAttribute="bottom" constant="-3" id="vrJ-an-HDg"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="1Hm-0k-PVu" secondAttribute="trailing" id="xC0-OD-5CP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="170" id="7gb-fI-oiz">
-                                        <rect key="frame" x="0.0" y="401" width="320" height="170"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="188" id="7gb-fI-oiz">
+                                        <rect key="frame" x="0.0" y="463" width="320" height="188"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7gb-fI-oiz" id="kFk-uG-vKC">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NA7-Te-RC5">
-                                                    <rect key="frame" x="0.0" y="10" width="320" height="150"/>
+                                                    <rect key="frame" x="0.0" y="10" width="320" height="168"/>
                                                 </mapView>
                                             </subviews>
                                             <constraints>
@@ -683,16 +717,8 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="BSS-l1-jDU">
-                                        <rect key="frame" x="0.0" y="571" width="320" height="150"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BSS-l1-jDU" id="l74-4Z-Oas">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="ilo-jj-4PI">
-                                        <rect key="frame" x="0.0" y="721" width="320" height="74"/>
+                                        <rect key="frame" x="0.0" y="651" width="320" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ilo-jj-4PI" id="RsJ-Q4-BL4">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
@@ -709,15 +735,72 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                     </tableView>
                     <navigationItem key="navigationItem" id="Q0e-GJ-KeS"/>
                     <connections>
+                        <outlet property="btnAddReview" destination="Z5O-rk-nq7" id="0Pg-wh-T3V"/>
                         <outlet property="fieldDescription" destination="Pu4-PZ-AFl" id="wc0-hm-4Ok"/>
                         <outlet property="fieldName" destination="1Hm-0k-PVu" id="6gv-mS-cK8"/>
+                        <outlet property="fieldPosted" destination="5iI-M6-SZk" id="06i-rj-vI7"/>
+                        <outlet property="fieldTotalReviews" destination="Jmx-0y-HyZ" id="d2r-53-SXh"/>
                         <outlet property="imagesCollection" destination="VN8-IN-GUO" id="28S-jq-z9W"/>
                         <outlet property="mapView" destination="NA7-Te-RC5" id="zzu-ls-ixu"/>
+                        <outlet property="rateView" destination="YOZ-ru-h8R" id="gwO-Pa-4Wm"/>
+                        <segue destination="ZGK-uV-IMF" kind="push" identifier="segueToRatingView" id="Hc6-uj-4Zh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ug-KG-RfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2427" y="-1487"/>
+        </scene>
+        <!--Rating View Controller-->
+        <scene sceneID="Qtm-5e-j6q">
+            <objects>
+                <viewController id="ZGK-uV-IMF" customClass="RatingViewController" customModule="myapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aNK-C8-Exe"/>
+                        <viewControllerLayoutGuide type="bottom" id="vlP-t3-l3B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qnF-4p-Kyz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PL6-iG-wWN">
+                                <rect key="frame" x="16" y="148" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v96-6i-a4H" customClass="FloatRatingView" customModule="myapp" customModuleProvider="target">
+                                <rect key="frame" x="40" y="90" width="240" height="36"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PL6-iG-wWN" firstAttribute="top" secondItem="v96-6i-a4H" secondAttribute="bottom" constant="22" id="387-Sa-PYw"/>
+                            <constraint firstItem="vlP-t3-l3B" firstAttribute="top" secondItem="PL6-iG-wWN" secondAttribute="bottom" constant="350" id="7n7-Ya-b4g"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="PL6-iG-wWN" secondAttribute="leading" id="EXC-Qc-9BA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v96-6i-a4H" secondAttribute="trailing" constant="24" id="Hbh-4N-4Gp"/>
+                            <constraint firstItem="v96-6i-a4H" firstAttribute="leading" secondItem="qnF-4p-Kyz" secondAttribute="leadingMargin" constant="24" id="csL-af-qLe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PL6-iG-wWN" secondAttribute="trailing" id="fm6-94-h3q"/>
+                            <constraint firstItem="v96-6i-a4H" firstAttribute="top" secondItem="aNK-C8-Exe" secondAttribute="bottom" constant="26" id="jWY-jd-vic"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="amf-XU-rm7">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Gep-FE-59a">
+                            <connections>
+                                <action selector="actionSave:" destination="ZGK-uV-IMF" id="Q46-lL-7wA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="rateView" destination="v96-6i-a4H" id="3FU-Bv-2B8"/>
+                        <outlet property="statusLabel" destination="PL6-iG-wWN" id="nB7-mO-4Jz"/>
+                        <segue destination="ZTe-wB-Ki5" kind="unwind" identifier="returnFromRatingView" unwindAction="returnFromRatingView:" id="gMW-b1-8to"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dF3-Kf-YgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZTe-wB-Ki5" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2960" y="-1486"/>
         </scene>
         <!--Add Place-->
         <scene sceneID="ujn-CU-dz6">

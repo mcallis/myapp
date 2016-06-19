@@ -10,12 +10,15 @@ import Foundation
 
 class Place: NSObject {
     
+    var objectId: String!
     var name: String = ""
     var desc: String = ""
     var owner: BackendlessUser?
     var location: GeoPoint?
     var urlImage: String!
     var images: [PlaceImage] = []
+    var reviews: [Rating] = []
+    var rating: Double = 0.0
     
     
     

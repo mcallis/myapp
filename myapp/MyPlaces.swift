@@ -83,7 +83,7 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
         
         //query.whereClause = "updated >= ''";
         //query.queryOptions.relationsDepth = 1
-        query.queryOptions.related = ["images", "location", "owner"]
+        query.queryOptions.related = ["images", "location", "owner", "reviews"]
         
         backendless.data.of(Place.ofClass()).find(
             query,

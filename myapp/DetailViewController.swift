@@ -9,14 +9,26 @@
 import UIKit
 import SDWebImage
 
-class DetailViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class DetailViewController: UITableViewControllerOwn, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var fieldName: UILabel!
     @IBOutlet weak var fieldDescription: UITextView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var imagesCollection: UICollectionView!
+    @IBOutlet weak var rateView: FloatRatingView!
+    @IBOutlet weak var fieldPosted: UILabel!
+    @IBOutlet weak var fieldTotalReviews: UILabel!
+    @IBOutlet weak var btnAddReview: UIButton!
+    
+    var backendless = Backendless.sharedInstance()
+    
+    var currentUser: BackendlessUser!
     
     var currentPlace: Place!
+    
+    // Numero de consulta a Backendless, se utiliza para cancelar las peticiones asíncronas que estuvieran
+    // pendientes cuando consulta de sitios
+    var currentQueryNumber = 0
     
     
     // Imagenes del sitio utilizando el tipo que PlaceImageWithData, que permite almacenar las UIImage
@@ -36,20 +48,45 @@ class DetailViewController: UITableViewController, UICollectionViewDelegate, UIC
             placeImages.append(newPlaceImageWithData)
         }
 
+        // Fill the fields
         fieldName.text = currentPlace.name
+        currentUser = backendless.userService.currentUser
+        let username: String = self.currentPlace.owner == self.currentUser ? "you" : (self.currentPlace.owner?.name)!
+        fieldPosted.text = "posted by \(username)"
         fieldDescription.text = currentPlace.desc
+        
+        // Set rateview
+        self.rateView.fullImage = UIImage(named: "fullstar")
+        self.rateView.emptyImage = UIImage(named: "emptystar")
+        let myIntValue = Int(self.currentPlace.rating)
+        self.rateView.rating = Float(myIntValue)
+        self.rateView.editable = false
+        
+        if self.currentPlace.owner?.objectId == self.currentUser.objectId {
+            self.btnAddReview.hidden = true
+        } else {
+            self.btnAddReview.hidden = false
+        }
+        
+        self.fieldTotalReviews.text = "(\(self.currentPlace.reviews.count) reviews)"
+        
 
         setupMapView()
-        /*
-        let fixedWidth = fieldDescription.frame.size.width
-        fieldDescription.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        let newSize = fieldDescription.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        var newFrame = fieldDescription.frame
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-        fieldDescription.frame = newFrame;
-         */
 
     }
+    
+    
+    @IBAction func actionAddReview(sender: AnyObject) {
+        performSegueWithIdentifier("segueToRatingView", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToRatingView" {
+            let destinationVC = segue.destinationViewController as! RatingViewController
+            destinationVC.currentPlace = self.currentPlace
+        }
+    }
+    
     
     /**
      Lanzada por la colección de imágenes cuando necesita saber cuántas debe mostar
@@ -124,7 +161,36 @@ class DetailViewController: UITableViewController, UICollectionViewDelegate, UIC
 
    
     
+    @IBAction func returnFromRatingView(segue: UIStoryboardSegue) {
+        refreshCurrentPlace()
+    }
     
+    func refreshCurrentPlace(){
+        // Durante todo el proceso de carga mostraremos el indicador de actividad de red en la aplicación
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    
+        startIndicator()
+        backendless.data.of(Place.ofClass()).findID(
+            self.currentPlace.objectId,
+            response: { (result: AnyObject!) -> Void in
+                self.stopIndicator()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                let foundPlace = result as! Place
+                let myIntValue = Int(foundPlace.rating)
+                self.rateView.rating = Float(myIntValue)
+        
+                self.fieldTotalReviews.text = "(\(foundPlace.reviews.count) reviews)"
+
+                
+                print("Place has been found: \(foundPlace.objectId)")
+            },
+            error: { (fault: Fault!) -> Void in
+                self.stopIndicator()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                print("Server reported an error (2): \(fault)")
+        })
+
+    }
     
     
     

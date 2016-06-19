@@ -14,6 +14,7 @@
 		494C80121CF128E200409B35 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80111CF128E200409B35 /* PlaceManager.swift */; };
 		494C80141CF1365A00409B35 /* AddPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80131CF1365A00409B35 /* AddPlace.swift */; };
 		498AE2FE1D156A3A00C4EC46 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498AE2FD1D156A3A00C4EC46 /* ImageDetailViewController.swift */; };
+		498AE3001D16FC3700C4EC46 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498AE2FF1D16FC3700C4EC46 /* FloatRatingView.swift */; };
 		4991F44C1CF1BB330045D0B7 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */; };
 		4991F44E1CF1D3410045D0B7 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44D1CF1D3410045D0B7 /* Map.swift */; };
 		4991F4501CF1EAB90045D0B7 /* PlaceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */; };
@@ -40,10 +41,11 @@
 		49D343331CC024110010745D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D343321CC024110010745D /* Profile.swift */; };
 		49D343351CC024830010745D /* UITableViewControllerOwn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D343341CC024830010745D /* UITableViewControllerOwn.swift */; };
 		49D343381CC04BB30010745D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D343371CC04BB30010745D /* TabBar.swift */; };
+		49E6A0C31D17052F0033D162 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E6A0C21D17052F0033D162 /* RatingViewController.swift */; };
+		49E6A0C51D1715B90033D162 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E6A0C41D1715B90033D162 /* Rating.swift */; };
 		49F1A7661D108EDE005F8683 /* PlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1A7651D108EDE005F8683 /* PlaceImage.swift */; };
 		49F1A7681D108EE8005F8683 /* PlaceImageWithData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1A7671D108EE8005F8683 /* PlaceImageWithData.swift */; };
 		49F1A76A1D108F52005F8683 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1A7691D108F52005F8683 /* Util.swift */; };
-		49F5C0181CF38842005C65B0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5C0171CF38842005C65B0 /* Image.swift */; };
 		49F5C01A1CF3A00D005C65B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5C0191CF3A00D005C65B0 /* DetailViewController.swift */; };
 		49FE53A71CC1380D00C67ED5 /* AppFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE53A61CC1380D00C67ED5 /* AppFormViewController.swift */; };
 		49FE53AB1CC1B27F00C67ED5 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE53AA1CC1B27F00C67ED5 /* UserSession.swift */; };
@@ -75,6 +77,7 @@
 		494C80111CF128E200409B35 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 		494C80131CF1365A00409B35 /* AddPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlace.swift; sourceTree = "<group>"; };
 		498AE2FD1D156A3A00C4EC46 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		498AE2FF1D16FC3700C4EC46 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		4991F44D1CF1D3410045D0B7 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		4991F44F1CF1EAB90045D0B7 /* PlaceLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceLocation.swift; sourceTree = "<group>"; };
@@ -107,10 +110,11 @@
 		49D343321CC024110010745D /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		49D343341CC024830010745D /* UITableViewControllerOwn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewControllerOwn.swift; sourceTree = "<group>"; };
 		49D343371CC04BB30010745D /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		49E6A0C21D17052F0033D162 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		49E6A0C41D1715B90033D162 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		49F1A7651D108EDE005F8683 /* PlaceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceImage.swift; path = "../../../../Practica2-Solucion/MyPlaces/MyPlaces/PlaceImage.swift"; sourceTree = "<group>"; };
 		49F1A7671D108EE8005F8683 /* PlaceImageWithData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceImageWithData.swift; path = "../../../../Practica2-Solucion/MyPlaces/MyPlaces/PlaceImageWithData.swift"; sourceTree = "<group>"; };
 		49F1A7691D108F52005F8683 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = "../../../../Practica2-Solucion/MyPlaces/MyPlaces/Util.swift"; sourceTree = "<group>"; };
-		49F5C0171CF38842005C65B0 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		49F5C0191CF3A00D005C65B0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		49FE53A61CC1380D00C67ED5 /* AppFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFormViewController.swift; sourceTree = "<group>"; };
 		49FE53AA1CC1B27F00C67ED5 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */,
 				49F5C0191CF3A00D005C65B0 /* DetailViewController.swift */,
 				498AE2FD1D156A3A00C4EC46 /* ImageDetailViewController.swift */,
+				49E6A0C21D17052F0033D162 /* RatingViewController.swift */,
 			);
 			name = myplaces;
 			sourceTree = "<group>";
@@ -241,8 +246,8 @@
 				49D343291CBF04BB0010745D /* Comment.swift */,
 				49D343101CBDB0650010745D /* User.swift */,
 				494C800B1CF110DC00409B35 /* Place.swift */,
-				49F5C0171CF38842005C65B0 /* Image.swift */,
 				493BD4B31D12102A00C3CBE3 /* PlaceImageCell.swift */,
+				49E6A0C41D1715B90033D162 /* Rating.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 		49D3431C1CBDC07C0010745D /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				498AE2FF1D16FC3700C4EC46 /* FloatRatingView.swift */,
 				49F1A7691D108F52005F8683 /* Util.swift */,
 				49D3431D1CBDC08C0010745D /* UserDefaults.swift */,
 				49D3431A1CBDBC930010745D /* Constants.swift */,
@@ -516,7 +522,6 @@
 				494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */,
 				493BD4B41D12102A00C3CBE3 /* PlaceImageCell.swift in Sources */,
 				49D343131CBDB1FA0010745D /* UITextFieldOwn.swift in Sources */,
-				49F5C0181CF38842005C65B0 /* Image.swift in Sources */,
 				49D3432C1CBF14D90010745D /* LaunchScreen.swift in Sources */,
 				49D343111CBDB0650010745D /* User.swift in Sources */,
 				49D3432A1CBF04BB0010745D /* Comment.swift in Sources */,
@@ -535,6 +540,7 @@
 				49D343381CC04BB30010745D /* TabBar.swift in Sources */,
 				49FE53AB1CC1B27F00C67ED5 /* UserSession.swift in Sources */,
 				494C800C1CF110DC00409B35 /* Place.swift in Sources */,
+				498AE3001D16FC3700C4EC46 /* FloatRatingView.swift in Sources */,
 				49F1A76A1D108F52005F8683 /* Util.swift in Sources */,
 				49D342DD1CBD7A880010745D /* AppDelegate.swift in Sources */,
 				49D343331CC024110010745D /* Profile.swift in Sources */,
@@ -543,7 +549,9 @@
 				49D343161CBDB2840010745D /* UIButtonOwn.swift in Sources */,
 				49D343281CBEF1FD0010745D /* UITabBarControllerOwn.swift in Sources */,
 				49D3430C1CBDAF720010745D /* Signup.swift in Sources */,
+				49E6A0C51D1715B90033D162 /* Rating.swift in Sources */,
 				49F5C01A1CF3A00D005C65B0 /* DetailViewController.swift in Sources */,
+				49E6A0C31D17052F0033D162 /* RatingViewController.swift in Sources */,
 				49D3431B1CBDBC930010745D /* Constants.swift in Sources */,
 				4991F4501CF1EAB90045D0B7 /* PlaceLocation.swift in Sources */,
 			);
@@ -688,6 +696,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -717,6 +726,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
