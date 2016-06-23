@@ -64,6 +64,7 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
     func loadPlaces(){
         // Durante todo el proceso de carga mostraremos el indicador de actividad de red en la aplicación
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        startIndicator()
         
         currentQueryNumber += 1
         let queryNumber = currentQueryNumber
@@ -72,17 +73,12 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
         let offset = 0
         
         
-        //let currentUser = backendless.userService.currentUser
+        let currentUser = backendless.userService.currentUser
         
         // Consultaremos los stios junto con sus relaciones images y location
         let query = BackendlessDataQuery()
         query.queryOptions.pageSize = PAGESIZE
-        //query.whereClause = "owner.objectId = '\(currentUser.objectId)'"
-      
-        //query.queryOptions.sortBy = ["updated DESC"]
-        
-        //query.whereClause = "updated >= ''";
-        //query.queryOptions.relationsDepth = 1
+        query.whereClause = "owner.objectId = '\(currentUser.objectId)'"
         query.queryOptions.related = ["images", "location", "owner", "reviews"]
         
         backendless.data.of(Place.ofClass()).find(
@@ -98,6 +94,8 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
             },
             error: { (fault : Fault!) -> () in
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                self.stopIndicator()
+                
                 if queryNumber == self.currentQueryNumber && self.listPlaces.count > 0 {
                     if self.listPlaces.count > 0{
                         let alertController = UIAlertController(title: "Error", message: "An error has ocurred while fetching your places", preferredStyle: .Alert)
@@ -135,6 +133,7 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
             
             // Una vez finalizado el proceso de carga ocultamos el indicador de actividad de red en la aplicación
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            stopIndicator()
             
             return
         }

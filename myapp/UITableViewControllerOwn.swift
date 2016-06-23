@@ -23,7 +23,7 @@ class UITableViewControllerOwn: UITableViewController {
         self.indicador.hidesWhenStopped = true
         self.indicador.activityIndicatorViewStyle = .WhiteLarge
         self.indicador.color = UIColor.grayColor()
-        self.navigationController!.view.addSubview(self.indicador)
+        self.view.addSubview(self.indicador)
     }
     
     func startIndicator(){

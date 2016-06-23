@@ -29,18 +29,18 @@ class FilterViewController: UIViewController {
         } else {
             self.slideBar.value = 0
         }
-        self.fieldDistance.text = String(format: "%i Km", Int(self.slideBar.value))
+        self.fieldDistance.text = "\(self.distance) Km" //String(format: "%i Km", Int(self.slideBar.value))
      
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
         self.fieldDistance.text = String(format: "%i Km", Int(sender.value))
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        self.delegate?.calculateWithNewDistance(Int(self.slideBar.value))
         print("viewWillDesappear")
+        self.delegate?.calculateWithNewDistance(Int(self.slideBar.value))
     }
 }

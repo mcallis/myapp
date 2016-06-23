@@ -13,6 +13,7 @@ class UIViewControllerOwn: UIViewController{
     private var indicador: UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.prepareActivityIndicatorView()
     }
     

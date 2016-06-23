@@ -26,8 +26,10 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
             { ( result : AnyObject!) -> () in
                 print("isValidUserToken (ASYNC): \(result.boolValue)")
                 // toMainApp
-                self.mAppManager.autoLoggedIn = true
-                self.toMainApp()
+                if (result.boolValue == true) {
+                    self.mAppManager.autoLoggedIn = true
+                    self.toMainApp()
+                }
             },
             error: { ( fault : Fault!) -> () in
                 print("Server reported an error (ASYNC): \(fault)")

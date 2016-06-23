@@ -15,8 +15,8 @@ class UserSession {
     static let key = Constants.UserDefaults.self
     
     static func get(){
-        self.userName = UserDefaults.get(key.usernameKeyConstant) as! String
-        self.password = UserDefaults.get(key.passwordKeyConstant) as! String
+        //self.userName = UserDefaults.get(key.usernameKeyConstant) as! String
+        //self.password = UserDefaults.get(key.passwordKeyConstant) as! String
     }
     
     static func set(username: String, password: String){

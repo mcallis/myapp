@@ -11,10 +11,10 @@ import Foundation
 class TabBar: UITabBarController{
     
     override func viewDidLoad() {
-        checkSession()
+        //checkSession()
     }
     
-    
+    /*
     func checkSession(){
         let mAppManager = AppManager.sharedInstance
         if (mAppManager.autoLoggedIn != nil && mAppManager.autoLoggedIn) {
@@ -32,6 +32,6 @@ class TabBar: UITabBarController{
             }
         }
     }
-    
+    */
     
 }

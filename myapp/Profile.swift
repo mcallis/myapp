@@ -13,6 +13,7 @@ class Profile: UIViewControllerOwn, UITableViewDataSource, UITableViewDelegate {
     var mAppManager: AppManager!
     var properties: [String] = []
     var data: [String] = []
+    var backendless = Backendless.sharedInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,9 @@ class Profile: UIViewControllerOwn, UITableViewDataSource, UITableViewDelegate {
         
         // Init appmanager
         mAppManager = AppManager.sharedInstance
-        let currentUser = mAppManager.currentUser
+        let currentUser = backendless.userService.currentUser
         properties = ["Username", "Name", "Email"]
-        data = [currentUser.username, currentUser.name, currentUser.email]
+        data = [currentUser.getProperty("username") as! String, currentUser.name, currentUser.email]
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

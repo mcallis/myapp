@@ -13,6 +13,8 @@
 		494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C800E1CF111C300409B35 /* MyPlaces.swift */; };
 		494C80121CF128E200409B35 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80111CF128E200409B35 /* PlaceManager.swift */; };
 		494C80141CF1365A00409B35 /* AddPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C80131CF1365A00409B35 /* AddPlace.swift */; };
+		49501C771D1B3BD000C23E5F /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49501C761D1B3BD000C23E5F /* VCMapView.swift */; };
+		49698A291D1A008800579676 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49698A281D1A008800579676 /* PlaceAnnotation.swift */; };
 		498AE2FE1D156A3A00C4EC46 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498AE2FD1D156A3A00C4EC46 /* ImageDetailViewController.swift */; };
 		498AE3001D16FC3700C4EC46 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498AE2FF1D16FC3700C4EC46 /* FloatRatingView.swift */; };
 		4991F44C1CF1BB330045D0B7 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */; };
@@ -79,6 +81,8 @@
 		494C800E1CF111C300409B35 /* MyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaces.swift; sourceTree = "<group>"; };
 		494C80111CF128E200409B35 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 		494C80131CF1365A00409B35 /* AddPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlace.swift; sourceTree = "<group>"; };
+		49501C761D1B3BD000C23E5F /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
+		49698A281D1A008800579676 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		498AE2FD1D156A3A00C4EC46 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		498AE2FF1D16FC3700C4EC46 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		4991F44B1CF1BB330045D0B7 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
@@ -330,6 +334,8 @@
 				49E6A0C71D17520C0033D162 /* MapViewController.swift */,
 				49E6A0C91D1756630033D162 /* FilterViewController.swift */,
 				49E6A0CB1D1765BA0033D162 /* PlaceCellRating.swift */,
+				49698A281D1A008800579676 /* PlaceAnnotation.swift */,
+				49501C761D1B3BD000C23E5F /* VCMapView.swift */,
 			);
 			name = map;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49698A291D1A008800579676 /* PlaceAnnotation.swift in Sources */,
 				49D343201CBDC6C50010745D /* ConnectionApi.swift in Sources */,
 				4991F44C1CF1BB330045D0B7 /* PlaceCell.swift in Sources */,
 				494C800F1CF111C300409B35 /* MyPlaces.swift in Sources */,
@@ -545,6 +552,7 @@
 				49D3432A1CBF04BB0010745D /* Comment.swift in Sources */,
 				498AE2FE1D156A3A00C4EC46 /* ImageDetailViewController.swift in Sources */,
 				49E6A0CC1D1765BA0033D162 /* PlaceCellRating.swift in Sources */,
+				49501C771D1B3BD000C23E5F /* VCMapView.swift in Sources */,
 				49D343351CC024830010745D /* UITableViewControllerOwn.swift in Sources */,
 				494C80141CF1365A00409B35 /* AddPlace.swift in Sources */,
 				49F1A7661D108EDE005F8683 /* PlaceImage.swift in Sources */,

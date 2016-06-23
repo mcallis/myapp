@@ -119,29 +119,16 @@ class Map: UIViewControllerOwn, MKMapViewDelegate, CLLocationManagerDelegate {
                 self.placeLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
             }
         }
-/*
+
         if (newState == MKAnnotationViewDragState.Ending)
         {
-            let droppedAt = annotationView.annotation!.coordinate;
+            let droppedAt = view.annotation!.coordinate;
             setRegion(droppedAt)
         }
- */
+
     }
 
 
-
-    
-    func centerMapOnLocation(location: CLLocation) {        
-        self.mapView.showsUserLocation = true
-        self.mapView.removeAnnotations(mapView.annotations)
-        
-        setRegion(location.coordinate)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location.coordinate
-        mapView.addAnnotation(annotation)
-    }
-    
     
     func setRegion(coordinate: CLLocationCoordinate2D){
         let span = MKCoordinateSpanMake(0.05, 0.05)
@@ -213,6 +200,7 @@ class Map: UIViewControllerOwn, MKMapViewDelegate, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
             isUpdatingLocation = true
         }
+        startIndicator()
     }
     
     /**
@@ -224,6 +212,7 @@ class Map: UIViewControllerOwn, MKMapViewDelegate, CLLocationManagerDelegate {
             locationManager.delegate = nil
             isUpdatingLocation = false
         }
+        stopIndicator()
     }
 
 
