@@ -427,8 +427,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Izt-4h-x2z">
-                                <rect key="frame" x="-4" y="64" width="328" height="689"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Izt-4h-x2z">
+                                <rect key="frame" x="20" y="64" width="280" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -466,12 +466,18 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7aH-lY-jNS" firstAttribute="top" secondItem="Izt-4h-x2z" secondAttribute="bottom" id="M3k-u4-Vwb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Izt-4h-x2z" secondAttribute="trailing" id="We6-1S-IH4"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Izt-4h-x2z" secondAttribute="leading" id="sBX-t0-esB"/>
+                            <constraint firstItem="Izt-4h-x2z" firstAttribute="top" secondItem="D8i-tP-k8c" secondAttribute="bottom" id="uGo-rh-IHw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7u5-Qa-R6V"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Efr-BU-MQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1113.0666666666666" y="1377.4000000000001"/>
+            <point key="canvasLocation" x="1113" y="1377"/>
         </scene>
         <!--Tab Bar-->
         <scene sceneID="iyY-VP-IAt">
@@ -1197,7 +1203,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Around Me" id="3aG-sb-9CF">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="ekD-JK-Fnb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="ekD-JK-Fnb">
                             <connections>
                                 <segue destination="eqR-Xo-8BE" kind="push" identifier="segueToFilter" id="VKP-Vx-rfq"/>
                             </connections>

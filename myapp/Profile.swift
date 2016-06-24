@@ -72,9 +72,20 @@ class Profile: UIViewControllerOwn, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1{
             mAppManager.doLogOut()
+            logOut()
             self.performSegueWithIdentifier(Constants.Segues.fromLogOut, sender: self)
             tabBarController?.selectedIndex = 0
         }
+    }
+    
+    func logOut(){
+        backendless.userService.logout(
+            { ( user : AnyObject!) -> () in
+                print("User logged out.")
+            },
+            error: { ( fault : Fault!) -> () in
+                print("Server reported an error: \(fault)")
+        })
     }
     
     

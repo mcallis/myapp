@@ -18,13 +18,16 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
     let backendless = Backendless.sharedInstance()
     let mAppManager = AppManager.sharedInstance
     var fromLogOut = false
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startIndicator()
         backendless.userService.isValidUserToken(
             { ( result : AnyObject!) -> () in
                 print("isValidUserToken (ASYNC): \(result.boolValue)")
+                self.stopIndicator()
                 // toMainApp
                 if (result.boolValue == true) {
                     self.mAppManager.autoLoggedIn = true
@@ -33,6 +36,7 @@ class Login: UITableViewControllerOwn, UITextFieldDelegate {
             },
             error: { ( fault : Fault!) -> () in
                 print("Server reported an error (ASYNC): \(fault)")
+                self.stopIndicator()
             }
         )
 

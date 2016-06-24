@@ -382,6 +382,7 @@ class MapViewController: UIViewControllerOwn, FilterManagerDelegate, UITableView
             locationManager.startUpdatingLocation()
             isUpdatingLocation = true
         }
+        startIndicator()
     }
     
     /**
@@ -393,6 +394,7 @@ class MapViewController: UIViewControllerOwn, FilterManagerDelegate, UITableView
             locationManager.delegate = nil
             isUpdatingLocation = false
         }
+        stopIndicator()
     }
     
     
