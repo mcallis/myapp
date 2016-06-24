@@ -1330,7 +1330,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
         <!--Info-->
         <scene sceneID="gom-z0-eXA">
             <objects>
-                <viewController id="KM8-ve-XXU" sceneMemberID="viewController">
+                <viewController id="KM8-ve-XXU" customClass="InfoViewController" customModule="myapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rRy-lT-4Zy"/>
                         <viewControllerLayoutGuide type="bottom" id="xgA-iM-KDz"/>
@@ -1338,13 +1338,57 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                     <view key="view" contentMode="scaleToFill" id="znG-wb-Wag">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total active users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3R-mf-K3j">
+                                <rect key="frame" x="20" y="72" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1f-Uj-fxm">
+                                <rect key="frame" x="20" y="101" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total active places" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHf-0n-bcl">
+                                <rect key="frame" x="20" y="130" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgR-5l-HVd">
+                                <rect key="frame" x="20" y="159" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="H3R-mf-K3j" secondAttribute="trailing" id="0JE-sl-9Dl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qgR-5l-HVd" secondAttribute="trailing" id="0c6-9v-8Yr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aHf-0n-bcl" secondAttribute="trailing" id="9wg-6W-tr0"/>
+                            <constraint firstItem="qgR-5l-HVd" firstAttribute="top" secondItem="aHf-0n-bcl" secondAttribute="bottom" constant="8" id="AIV-qi-Qrr"/>
+                            <constraint firstItem="aHf-0n-bcl" firstAttribute="top" secondItem="I1f-Uj-fxm" secondAttribute="bottom" constant="8" id="Bcl-zb-5M3"/>
+                            <constraint firstItem="H3R-mf-K3j" firstAttribute="top" secondItem="rRy-lT-4Zy" secondAttribute="bottom" constant="8" id="Byx-KT-GYq"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="I1f-Uj-fxm" secondAttribute="leading" id="GjE-S0-HLN"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="aHf-0n-bcl" secondAttribute="leading" id="Q1j-y7-17Z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I1f-Uj-fxm" secondAttribute="trailing" id="YOf-7A-Vr0"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="H3R-mf-K3j" secondAttribute="leading" id="boI-CF-cnS"/>
+                            <constraint firstItem="I1f-Uj-fxm" firstAttribute="top" secondItem="H3R-mf-K3j" secondAttribute="bottom" constant="8" id="bxK-tB-dsS"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="qgR-5l-HVd" secondAttribute="leading" id="nxN-Lc-yfx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Info" id="6R7-Vy-05I"/>
+                    <connections>
+                        <outlet property="fieldTotalPlaces" destination="qgR-5l-HVd" id="t4D-a5-pE1"/>
+                        <outlet property="fieldTotalUsers" destination="I1f-Uj-fxm" id="GlX-xp-Cfu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbb-YU-VxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2113.5999999999999" y="1437.9866666666667"/>
+            <point key="canvasLocation" x="2113" y="1437"/>
         </scene>
         <!--Map-->
         <scene sceneID="s0g-y3-Tlh">

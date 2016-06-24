@@ -85,7 +85,7 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
             query,
             response: { ( places : BackendlessCollection!) -> () in
                 if queryNumber == self.currentQueryNumber {
-                    print("Total places in the server: \(places.totalObjects)")
+                    print("Total your places in the server: \(places.totalObjects)")
                     self.listPlaces = []
                     self.listPlaces.appendContentsOf(places.getCurrentPage() as! [Place])
                     self.tableView.reloadData()
@@ -96,7 +96,7 @@ class MyPlaces: UITableViewControllerOwn, PlaceManagerDelegate {
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 self.stopIndicator()
                 
-                if queryNumber == self.currentQueryNumber && self.listPlaces.count > 0 {
+                if queryNumber == self.currentQueryNumber {
                     if self.listPlaces.count > 0{
                         let alertController = UIAlertController(title: "Error", message: "An error has ocurred while fetching your places", preferredStyle: .Alert)
                         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
