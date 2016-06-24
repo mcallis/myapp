@@ -27,12 +27,12 @@ class UITableViewControllerOwn: UITableViewController {
     }
     
     func startIndicator(){
-        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        //UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         self.indicador.startAnimating()
     }
     
     func stopIndicator(){
-        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+        //UIApplication.sharedApplication().endIgnoringInteractionEvents()
         self.indicador.stopAnimating()
     }
     

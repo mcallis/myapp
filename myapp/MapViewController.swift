@@ -58,12 +58,23 @@ class MapViewController: UIViewControllerOwn, FilterManagerDelegate, UITableView
         self.tableView.dataSource = self
         self.mapView.delegate = self
         
+        self.userLocation = mapView.userLocation.location
+        
+        loadPlaces()
+        
+        setupMap()
+        
+        searchCurrentLocation()
+        
+        /*
+        
         if userLocation != nil {
             // Si tenemos una ubicación configuramos el mapa
             setupMap()
         } else {
             searchCurrentLocation()
         }
+ */
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -106,6 +117,41 @@ class MapViewController: UIViewControllerOwn, FilterManagerDelegate, UITableView
         
         let startTime = NSDate()
         let offset = 0
+        /*
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // Consultaremos los stios junto con sus relaciones images y location
+            let query = BackendlessDataQuery()
+            query.queryOptions.pageSize = self.PAGESIZE
+            query.queryOptions.related = ["images", "location", "owner", "reviews"]
+            query.queryOptions.relationsDepth = 1
+            //query.whereClause = "distance( \(latitude), \(longitude), location.latitude, location.longitude) <= km(10)"
+            query.whereClause = "distance( \(self.userLocation!.coordinate.latitude), \(self.userLocation!.coordinate.longitude), location.latitude, location.longitude ) <= km(\(self.distance))"
+            
+            
+            let places: BackendlessCollection = self.backendless.persistenceService.find(Place.ofClass(), dataQuery: query) as BackendlessCollection
+            self.listPlaces = []
+            self.listPlaces.appendContentsOf(places.getCurrentPage() as! [Place])
+            self.tableView.reloadData()
+            self.getPageAsync(places, offset: offset, queryNumber: queryNumber, startTime:startTime)
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                self.stopIndicator()
+                if queryNumber == self.currentQueryNumber && self.listPlaces.count > 0 {
+                    if self.listPlaces.count > 0{
+                        let alertController = UIAlertController(title: "Error", message: "An error has ocurred while fetching your places", preferredStyle: .Alert)
+                        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                        alertController.addAction(OKAction)
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                    }
+                    
+                }
+
+            }
+        
+        
+        }*/
         
         Types.tryblock({ () -> Void in
             // Consultaremos los stios junto con sus relaciones images y location
@@ -114,7 +160,10 @@ class MapViewController: UIViewControllerOwn, FilterManagerDelegate, UITableView
             query.queryOptions.related = ["images", "location", "owner", "reviews"]
             query.queryOptions.relationsDepth = 1
             //query.whereClause = "distance( \(latitude), \(longitude), location.latitude, location.longitude) <= km(10)"
-            query.whereClause = "distance( \(self.userLocation!.coordinate.latitude), \(self.userLocation!.coordinate.longitude), location.latitude, location.longitude ) <= km(\(self.distance))"
+            if (self.userLocation != nil) {
+                query.whereClause = "distance( \(self.userLocation!.coordinate.latitude), \(self.userLocation!.coordinate.longitude), location.latitude, location.longitude ) <= km(\(self.distance))"
+            }
+            
             
             
             let places: BackendlessCollection = self.backendless.persistenceService.find(Place.ofClass(), dataQuery: query) as BackendlessCollection
@@ -333,7 +382,6 @@ class MapViewController: UIViewControllerOwn, FilterManagerDelegate, UITableView
             locationManager.startUpdatingLocation()
             isUpdatingLocation = true
         }
-        startIndicator()
     }
     
     /**
@@ -345,7 +393,6 @@ class MapViewController: UIViewControllerOwn, FilterManagerDelegate, UITableView
             locationManager.delegate = nil
             isUpdatingLocation = false
         }
-        stopIndicator()
     }
     
     
