@@ -1144,7 +1144,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                                                         <constraint firstAttribute="width" constant="75" id="t5X-px-fjy"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-1C-Qny">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-1C-Qny">
                                                     <rect key="frame" x="124" y="90" width="88" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="J2F-bu-VyN"/>
@@ -1232,7 +1232,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="40" minValue="0.0" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="3uR-tT-WGM">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="3uR-tT-WGM">
                                 <rect key="frame" x="23" y="161" width="275" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="eqR-Xo-8BE" eventType="valueChanged" id="Tfk-Ev-WzN"/>
@@ -1504,7 +1504,7 @@ Nulla in libero id ligula rutrum pulvinar. Mauris vulputate metus nec enim congu
         <image name="profile_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OjZ-Cr-ekQ"/>
+        <segue reference="ohr-Gs-Yih"/>
         <segue reference="0oa-wp-TTb"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -114,6 +114,8 @@ class Map: UIViewControllerOwn, MKMapViewDelegate, CLLocationManagerDelegate {
      La usamos para detectar cuando el usuario ha soltado el pin que marca la posición del sitio
      */
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+    
+        
         if oldState == .Dragging && newState == .Ending {
             if let coordinate = view.annotation?.coordinate {
                 self.placeLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
@@ -144,6 +146,7 @@ class Map: UIViewControllerOwn, MKMapViewDelegate, CLLocationManagerDelegate {
         
         let locCoord = self.mapView.convertPoint(loc, toCoordinateFromView: self.mapView)
         self.location = CLLocation(latitude: locCoord.latitude, longitude: locCoord.longitude)
+        self.placeLocation = self.location
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = locCoord
